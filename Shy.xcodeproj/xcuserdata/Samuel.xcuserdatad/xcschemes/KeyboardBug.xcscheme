@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5FBD1C521861AE8F0073B7E6"
-               BuildableName = "KeyboardBug.app"
+               BuildableName = "Shy.app"
                BlueprintName = "Shy"
                ReferencedContainer = "container:Shy.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5FBD1C731861AE8F0073B7E6"
-               BuildableName = "KeyboardBugTests.xctest"
+               BuildableName = "ShyTests.xctest"
                BlueprintName = "ShyTests"
                ReferencedContainer = "container:Shy.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FBD1C521861AE8F0073B7E6"
-            BuildableName = "KeyboardBug.app"
+            BuildableName = "Shy.app"
             BlueprintName = "Shy"
             ReferencedContainer = "container:Shy.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FBD1C521861AE8F0073B7E6"
-            BuildableName = "KeyboardBug.app"
+            BuildableName = "Shy.app"
             BlueprintName = "Shy"
             ReferencedContainer = "container:Shy.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FBD1C521861AE8F0073B7E6"
-            BuildableName = "KeyboardBug.app"
+            BuildableName = "Shy.app"
             BlueprintName = "Shy"
             ReferencedContainer = "container:Shy.xcodeproj">
          </BuildableReference>

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F85BF041861B5C100C3504E /* BUGKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F85BF021861B5C100C3504E /* BUGKeyViewController.m */; };
-		5F85BF051861B5C100C3504E /* BUGKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F85BF031861B5C100C3504E /* BUGKeyViewController.xib */; };
+		5F85BF041861B5C100C3504E /* PersonalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F85BF021861B5C100C3504E /* PersonalInformationViewController.m */; };
+		5F85BF051861B5C100C3504E /* PersonalInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F85BF031861B5C100C3504E /* PersonalInformationViewController.xib */; };
 		5FBD1C571861AE8F0073B7E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBD1C561861AE8F0073B7E6 /* Foundation.framework */; };
 		5FBD1C591861AE8F0073B7E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBD1C581861AE8F0073B7E6 /* CoreGraphics.framework */; };
 		5FBD1C5B1861AE8F0073B7E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBD1C5A1861AE8F0073B7E6 /* UIKit.framework */; };
@@ -16,7 +16,7 @@
 		5FBD1C631861AE8F0073B7E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD1C621861AE8F0073B7E6 /* main.m */; };
 		5FBD1C671861AE8F0073B7E6 /* BUGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD1C661861AE8F0073B7E6 /* BUGAppDelegate.m */; };
 		5FBD1C6A1861AE8F0073B7E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD1C681861AE8F0073B7E6 /* Main.storyboard */; };
-		5FBD1C6D1861AE8F0073B7E6 /* BUGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD1C6C1861AE8F0073B7E6 /* BUGViewController.m */; };
+		5FBD1C6D1861AE8F0073B7E6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD1C6C1861AE8F0073B7E6 /* MainViewController.m */; };
 		5FBD1C6F1861AE8F0073B7E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD1C6E1861AE8F0073B7E6 /* Images.xcassets */; };
 		5FBD1C761861AE8F0073B7E6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBD1C751861AE8F0073B7E6 /* XCTest.framework */; };
 		5FBD1C771861AE8F0073B7E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBD1C561861AE8F0073B7E6 /* Foundation.framework */; };
@@ -36,9 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F85BF011861B5C100C3504E /* BUGKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUGKeyViewController.h; sourceTree = "<group>"; };
-		5F85BF021861B5C100C3504E /* BUGKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUGKeyViewController.m; sourceTree = "<group>"; };
-		5F85BF031861B5C100C3504E /* BUGKeyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUGKeyViewController.xib; sourceTree = "<group>"; };
+		5F85BF011861B5C100C3504E /* PersonalInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInformationViewController.h; sourceTree = "<group>"; };
+		5F85BF021861B5C100C3504E /* PersonalInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationViewController.m; sourceTree = "<group>"; };
+		5F85BF031861B5C100C3504E /* PersonalInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInformationViewController.xib; sourceTree = "<group>"; };
 		5FBD1C531861AE8F0073B7E6 /* Shy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBD1C561861AE8F0073B7E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FBD1C581861AE8F0073B7E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -50,8 +50,8 @@
 		5FBD1C651861AE8F0073B7E6 /* BUGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGAppDelegate.h; sourceTree = "<group>"; };
 		5FBD1C661861AE8F0073B7E6 /* BUGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUGAppDelegate.m; sourceTree = "<group>"; };
 		5FBD1C691861AE8F0073B7E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5FBD1C6B1861AE8F0073B7E6 /* BUGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGViewController.h; sourceTree = "<group>"; };
-		5FBD1C6C1861AE8F0073B7E6 /* BUGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUGViewController.m; sourceTree = "<group>"; };
+		5FBD1C6B1861AE8F0073B7E6 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5FBD1C6C1861AE8F0073B7E6 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		5FBD1C6E1861AE8F0073B7E6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5FBD1C741861AE8F0073B7E6 /* ShyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBD1C751861AE8F0073B7E6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -87,7 +87,7 @@
 		5FBD1C4A1861AE8F0073B7E6 = {
 			isa = PBXGroup;
 			children = (
-				5FBD1C5C1861AE8F0073B7E6 /* KeyboardBug */,
+				5FBD1C5C1861AE8F0073B7E6 /* Shy */,
 				5FBD1C7B1861AE8F0073B7E6 /* KeyboardBugTests */,
 				5FBD1C551861AE8F0073B7E6 /* Frameworks */,
 				5FBD1C541861AE8F0073B7E6 /* Products */,
@@ -114,20 +114,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5FBD1C5C1861AE8F0073B7E6 /* KeyboardBug */ = {
+		5FBD1C5C1861AE8F0073B7E6 /* Shy */ = {
 			isa = PBXGroup;
 			children = (
 				5FBD1C651861AE8F0073B7E6 /* BUGAppDelegate.h */,
 				5FBD1C661861AE8F0073B7E6 /* BUGAppDelegate.m */,
 				5FBD1C681861AE8F0073B7E6 /* Main.storyboard */,
-				5FBD1C6B1861AE8F0073B7E6 /* BUGViewController.h */,
-				5FBD1C6C1861AE8F0073B7E6 /* BUGViewController.m */,
-				5F85BF011861B5C100C3504E /* BUGKeyViewController.h */,
-				5F85BF021861B5C100C3504E /* BUGKeyViewController.m */,
-				5F85BF031861B5C100C3504E /* BUGKeyViewController.xib */,
+				5FBD1C6B1861AE8F0073B7E6 /* MainViewController.h */,
+				5FBD1C6C1861AE8F0073B7E6 /* MainViewController.m */,
+				5F85BF011861B5C100C3504E /* PersonalInformationViewController.h */,
+				5F85BF021861B5C100C3504E /* PersonalInformationViewController.m */,
+				5F85BF031861B5C100C3504E /* PersonalInformationViewController.xib */,
 				5FBD1C6E1861AE8F0073B7E6 /* Images.xcassets */,
 				5FBD1C5D1861AE8F0073B7E6 /* Supporting Files */,
 			);
+			name = Shy;
 			path = KeyboardBug;
 			sourceTree = "<group>";
 		};
@@ -205,7 +206,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BUG;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Apple, Inc";
 				TargetAttributes = {
 					5FBD1C731861AE8F0073B7E6 = {
@@ -240,7 +241,7 @@
 				5FBD1C6F1861AE8F0073B7E6 /* Images.xcassets in Resources */,
 				5FBD1C611861AE8F0073B7E6 /* InfoPlist.strings in Resources */,
 				5FBD1C6A1861AE8F0073B7E6 /* Main.storyboard in Resources */,
-				5F85BF051861B5C100C3504E /* BUGKeyViewController.xib in Resources */,
+				5F85BF051861B5C100C3504E /* PersonalInformationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,9 +261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FBD1C631861AE8F0073B7E6 /* main.m in Sources */,
-				5FBD1C6D1861AE8F0073B7E6 /* BUGViewController.m in Sources */,
+				5FBD1C6D1861AE8F0073B7E6 /* MainViewController.m in Sources */,
 				5FBD1C671861AE8F0073B7E6 /* BUGAppDelegate.m in Sources */,
-				5F85BF041861B5C100C3504E /* BUGKeyViewController.m in Sources */,
+				5F85BF041861B5C100C3504E /* PersonalInformationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +317,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -355,7 +355,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -413,7 +412,6 @@
 		5FBD1C891861AE8F0073B7E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KeyboardBug.app/KeyboardBug";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -436,7 +434,6 @@
 		5FBD1C8A1861AE8F0073B7E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KeyboardBug.app/KeyboardBug";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

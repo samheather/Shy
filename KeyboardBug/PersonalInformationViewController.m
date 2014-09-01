@@ -3,15 +3,15 @@
 //  KeyboardBug
 //
 
-#import "BUGKeyViewController.h"
+#import "PersonalInformationViewController.h"
 
-@interface BUGKeyViewController ()
+@interface PersonalInformationViewController ()
 
 @property (nonatomic, strong) UITextField *textField;
 
 @end
 
-@implementation BUGKeyViewController
+@implementation PersonalInformationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

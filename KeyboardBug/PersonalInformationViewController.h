@@ -5,6 +5,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BUGKeyViewController : UIViewController
+@interface PersonalInformationViewController : UIViewController
 
 @end
