@@ -23,7 +23,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)showKeyboardView:(id)sender
+- (IBAction)showGetPersonalInfoView:(id)sender
 {
     PersonalInformationViewController *personalInformationViewController = [[PersonalInformationViewController alloc] initWithNibName:@"PersonalInformationViewController" bundle:nil];
     [self.navigationController pushViewController:personalInformationViewController animated:YES];

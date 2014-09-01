@@ -23,6 +23,8 @@
 		5FBD1C781861AE8F0073B7E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBD1C5A1861AE8F0073B7E6 /* UIKit.framework */; };
 		5FBD1C801861AE8F0073B7E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD1C7E1861AE8F0073B7E6 /* InfoPlist.strings */; };
 		5FBD1C821861AE8F0073B7E6 /* KeyboardBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD1C811861AE8F0073B7E6 /* KeyboardBugTests.m */; };
+		7EA4B6DF19B4C3B4005BB9BC /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6DE19B4C3B4005BB9BC /* Question.m */; };
+		7EA4B6E219B4D782005BB9BC /* Questions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6E119B4D782005BB9BC /* Questions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		5FBD1C7D1861AE8F0073B7E6 /* ShyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShyTests-Info.plist"; sourceTree = "<group>"; };
 		5FBD1C7F1861AE8F0073B7E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5FBD1C811861AE8F0073B7E6 /* KeyboardBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardBugTests.m; sourceTree = "<group>"; };
+		7EA4B6DD19B4C3B4005BB9BC /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		7EA4B6DE19B4C3B4005BB9BC /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		7EA4B6E019B4D782005BB9BC /* Questions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Questions.h; sourceTree = "<group>"; };
+		7EA4B6E119B4D782005BB9BC /* Questions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Questions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,10 @@
 				5F85BF011861B5C100C3504E /* PersonalInformationViewController.h */,
 				5F85BF021861B5C100C3504E /* PersonalInformationViewController.m */,
 				5F85BF031861B5C100C3504E /* PersonalInformationViewController.xib */,
+				7EA4B6DD19B4C3B4005BB9BC /* Question.h */,
+				7EA4B6DE19B4C3B4005BB9BC /* Question.m */,
+				7EA4B6E019B4D782005BB9BC /* Questions.h */,
+				7EA4B6E119B4D782005BB9BC /* Questions.m */,
 				5FBD1C6E1861AE8F0073B7E6 /* Images.xcassets */,
 				5FBD1C5D1861AE8F0073B7E6 /* Supporting Files */,
 			);
@@ -261,7 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FBD1C631861AE8F0073B7E6 /* main.m in Sources */,
+				7EA4B6E219B4D782005BB9BC /* Questions.m in Sources */,
 				5FBD1C6D1861AE8F0073B7E6 /* MainViewController.m in Sources */,
+				7EA4B6DF19B4C3B4005BB9BC /* Question.m in Sources */,
 				5FBD1C671861AE8F0073B7E6 /* BUGAppDelegate.m in Sources */,
 				5F85BF041861B5C100C3504E /* PersonalInformationViewController.m in Sources */,
 			);

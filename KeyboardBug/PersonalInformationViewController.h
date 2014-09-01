@@ -5,6 +5,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonalInformationViewController : UIViewController
+@interface PersonalInformationViewController : UIViewController {
+    IBOutlet UISegmentedControl *maleFemale;
+    
+}
 
 @end
