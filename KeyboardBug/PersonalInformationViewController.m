@@ -5,9 +5,9 @@
 
 #import "PersonalInformationViewController.h"
 
-@interface PersonalInformationViewController ()
-
-@property (nonatomic, strong) UITextField *textField;
+@interface PersonalInformationViewController () {
+    NSArray *_pickerData;
+}
 
 @end
 
@@ -26,17 +26,41 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setupInterface];
     
-    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 100, 44)];
-    self.textField.keyboardType = UIKeyboardTypeNumberPad;
-    self.textField.keyboardAppearance = UIKeyboardAppearanceDark;
-    [self.view addSubview:self.textField];
+}
+
+-(void)setupInterface {
+    _pickerData = @[@"Straight", @"Gay", @"Lesbian", @"Transgender", @"Bi-sexual", @"Queer"];
+    [sexualityPicker setDelegate:self];
+    [sexualityPicker setDataSource:self];
     
-    double delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self.textField becomeFirstResponder];
-    });
+    [maleFemale setSelectedSegmentIndex:0];
+    [maleFemale addTarget:self action:@selector(sexChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    [age addTarget:self action:@selector(setAge) forControlEvents:UIControlEventEditingDidEnd];
+}
+
+// Sexuality Picker
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSLog(@"Changed sexuality");
+}
+
+// Sex picker
+
+- (void)sexChanged:(UISegmentedControl *)segment {
+    if(segment.selectedSegmentIndex == 0) {
+        NSLog(@" Female ");
+    }else if(segment.selectedSegmentIndex == 1){
+        NSLog(@" Male ");
+    }
+}
+
+// Age
+
+- (void)setAge {
+    NSLog(@"Age changed");
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,5 +68,25 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// The number of columns of data
+- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _pickerData.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _pickerData[row];
+}
+
+
 
 @end

@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Question.h"
 
 @interface Questions : NSObject
 
 @property (nonatomic, strong) NSMutableArray *questions;
+@property (nonatomic) BOOL liveData;
 
--(BOOL)loadQuestions;
+-(void)loadQuestions;
+-(Question *)getQuestionWithIndex:(int)index;
 
 @end

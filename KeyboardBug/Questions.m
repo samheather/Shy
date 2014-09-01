@@ -13,15 +13,29 @@
     NSMutableData *_downloadedData;
 }
 
-@synthesize questions;
+@synthesize questions, liveData;
 
 - (id)init {
     self = [super init];
+    liveData = FALSE;
     return self;
 }
 
--(BOOL)loadQuestions {
-    return TRUE;
+-(void)loadQuestions {
+    [self downloadItems];
+}
+
+-(void)processItems:(NSMutableArray*)completeDownloadedData {
+    questions = completeDownloadedData;
+}
+
+-(Question *)getQuestionWithIndex:(int)index {
+    if (liveData) {
+        return [questions objectAtIndex:index];
+    }
+    else {
+        return NULL;
+    }
 }
 
 ////////
@@ -29,7 +43,7 @@
 - (void)downloadItems
 {
     // Download the json file
-    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://gtvinyl.com/service.php"];
+    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://shy.heather.sh/get.php"];
     
     // Create the request
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:jsonFileUrl];
@@ -64,7 +78,8 @@
     // Loop through Json objects, create question objects and add them to our questions array
     for (int i = 0; i < jsonArray.count; i++)
     {
-        NSDictionary *jsonElement = jsonArray[i];
+//        NSDictionary *jsonElement = jsonArray[i];
+        NSDictionary *jsonElement = jsonArray;
         
         // Create a new question object and set its props to JsonElement properties
         Question *newQuestion = [[Question alloc] initWithUid:[jsonElement[@"id"] intValue] question:jsonElement[@"question"] answer:jsonElement[@"answer"] keywords:jsonElement[@"keywords"] targets:jsonElement[@"targets"] ageRange:jsonElement[@"ages"] numberOfVotes:[jsonElement[@"votes"] intValue]];
@@ -79,7 +94,11 @@
 //        [self.delegate itemsDownloaded:_locations];
 //    }
     
-    questions = _locations;
+    [self processItems:_locations];
+    
+    liveData = TRUE;
+    
+    NSLog(@"Data is live");
 }
 
 @end
