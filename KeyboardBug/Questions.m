@@ -75,16 +75,12 @@
     NSError *error;
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_downloadedData options:NSJSONReadingAllowFragments error:&error];
     
-//    NSLog([jsonArray description]);
-//    NSLog(@"%d", [jsonArray count]);
-    
     // Loop through Json objects, create question objects and add them to our questions array
     for (int i = 0; i < jsonArray.count; i++)
     {
         NSLog(@"A question was downloaded and is been processed");
         
         NSDictionary *jsonElement = jsonArray[i];
-//        NSDictionary *jsonElement = jsonArray;
         
         // Create a new question object and set its props to JsonElement properties
         Question *newQuestion = [[Question alloc] initWithUid:[jsonElement[@"id"] intValue] question:jsonElement[@"question"] answer:jsonElement[@"answer"] keywords:jsonElement[@"keywords"] targets:jsonElement[@"targets"] ageRange:jsonElement[@"ages"] numberOfVotes:[jsonElement[@"votes"] intValue]];
