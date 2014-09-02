@@ -7,6 +7,7 @@
 
 @interface PersonalInformationViewController () {
     NSArray *_pickerData;
+    NSUserDefaults *defaults;
 }
 
 @end
@@ -25,12 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     [self setupInterface];
     
 }
 
 -(void)setupInterface {
+    defaults = [NSUserDefaults standardUserDefaults];
+    
     _pickerData = @[@"Straight", @"Gay", @"Lesbian", @"Transgender", @"Bi-sexual", @"Queer"];
     [sexualityPicker setDelegate:self];
     [sexualityPicker setDataSource:self];
@@ -38,29 +41,35 @@
     [maleFemale setSelectedSegmentIndex:0];
     [maleFemale addTarget:self action:@selector(sexChanged:) forControlEvents:UIControlEventValueChanged];
     
-    [age addTarget:self action:@selector(setAge) forControlEvents:UIControlEventEditingDidEnd];
+    // Load from NSUSerDefaults
+    [sexualityPicker selectRow:[defaults integerForKey:@"sexualityPicker"] inComponent:0 animated:NO];
+    [maleFemale setSelectedSegmentIndex:[defaults integerForKey:@"sex"]];
+    [age setText:[NSString stringWithFormat:@"%d", [defaults integerForKey:@"age"]]];
 }
 
 // Sexuality Picker
-
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     NSLog(@"Changed sexuality");
+    [defaults setInteger:row forKey:@"sexualityPicker"];
+    [defaults synchronize];
 }
 
 // Sex picker
-
 - (void)sexChanged:(UISegmentedControl *)segment {
     if(segment.selectedSegmentIndex == 0) {
         NSLog(@" Female ");
     }else if(segment.selectedSegmentIndex == 1){
         NSLog(@" Male ");
     }
+    [defaults setInteger:segment.selectedSegmentIndex forKey:@"sex"];
+    [defaults synchronize];
 }
 
 // Age
-
-- (void)setAge {
-    NSLog(@"Age changed");
+- (IBAction)changedAge {
+    [age resignFirstResponder];
+    [defaults setInteger:[[age text] intValue] forKey:@"age"];
+    [defaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning
