@@ -13,6 +13,7 @@
 
 -(id)initWithQuestion:(Question*)inputQuestion withHeight:(int)height withIndex:(int)index;
 
-@property UIView *theView;
+@property UIButton *theView;
+@property Question *questionForThisButton;
 
 @end

@@ -10,17 +10,25 @@
 
 @implementation QuestionStickerView
 
-@synthesize theView;
+@synthesize theView, questionForThisButton;
 
 -(id)initWithQuestion:(Question*)inputQuestion withHeight:(int)height withIndex:(int)index {
     self = [super init];
     if (self) {
-        theView = [[UIView alloc] initWithFrame:CGRectMake(10, 50+((10+height)*index), 300, height)];
+        questionForThisButton = inputQuestion;
+        
+        // Initialise and set appearance
+        theView = [[UIButton alloc] initWithFrame:CGRectMake(10, 50+((10+height)*index), 300, height)];
         [theView setBackgroundColor:[UIColor whiteColor]];
         [theView.layer setShadowColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1].CGColor];
         [theView.layer setShadowOffset:CGSizeMake(0, 0)];
         [theView.layer setShadowOpacity:0.8];
         [theView.layer setShadowRadius:1];
+        
+        // Set tap behaviour
+//        [theView addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+//        [theView addTarget:self action:@selector(pressUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
+//        [theView addTarget:self action:@selector(pressUpInside:) forControlEvents:UIControlEventTouchUpInside];
         
 //        [theView.layer setBorderColor:aqua];
         
@@ -44,6 +52,24 @@
                                 
     }
     return self;
+}
+
+-(void)pressDown:(id)sender {
+    NSLog(@"Press down start");
+//    [theView setBackgroundColor:[UIColor grayColor]];
+//    theView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.90, 0.90);
+    NSLog(@"Press down stop");
+}
+
+-(void)pressUpOutside:(id)sender {
+//    [theView setBackgroundColor:[UIColor whiteColor]];
+//    theView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
+}
+
+-(void)pressUpInside:(id)sender {
+    NSLog(@"Touch up inside");
+//    [theView setBackgroundColor:[UIColor whiteColor]];
+    //    theView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
 }
 
 @end

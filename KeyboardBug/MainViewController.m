@@ -28,7 +28,7 @@ Questions *qs;
         [UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"panda-small"]];
-    imageView.frame = CGRectMake(self.view.frame.size.width-40,24,40,40);
+    imageView.frame = CGRectMake(self.view.frame.size.width-31,20,32,44);
     [self.navigationController.view addSubview:imageView];
     //////
     
@@ -42,14 +42,35 @@ Questions *qs;
     qs = [[Questions alloc] init];
     [qs loadQuestions];
     
-    [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
 }
 
 - (void)testDataPull {
     NSLog(@"Doing test data pull");
     for (int i = 0; i<[qs numberOfQuestions]; i++) {
-        [cardScrollView addSubview:[[[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:i] withHeight:heightOfCard withIndex:i] theView]];
+        QuestionStickerView *qsv = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:i] withHeight:heightOfCard withIndex:i];
+        [[qsv theView] addTarget:self action:@selector(tapDown:) forControlEvents:UIControlEventTouchDown];
+        [[qsv theView] addTarget:self action:@selector(tapUpInside:) forControlEvents:UIControlEventTouchUpInside];
+        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
+        [cardScrollView addSubview:[qsv theView]];
     }
+}
+
+-(void)tapDown:(id)sender {
+    // TODO - add light white opacity overlay over whole card when tapping and holding.
+    UIButton *button = sender;
+    button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
+}
+
+-(void)tapUpInside:(id)sender {
+    UIButton *button = sender;
+    button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+//    int questionIndex = questionIndex;
+}
+
+-(void)tapUpOutside:(id)sender {
+    UIButton *button = sender;
+    button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
 }
 
 - (void)didReceiveMemoryWarning
