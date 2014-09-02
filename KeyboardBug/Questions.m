@@ -43,7 +43,7 @@
 - (void)downloadItems
 {
     // Download the json file
-    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://shy.heather.sh/get.php"];
+    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://shy.heather.sh/get2.php"];
     
     // Create the request
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:jsonFileUrl];
@@ -75,11 +75,16 @@
     NSError *error;
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_downloadedData options:NSJSONReadingAllowFragments error:&error];
     
+//    NSLog([jsonArray description]);
+//    NSLog(@"%d", [jsonArray count]);
+    
     // Loop through Json objects, create question objects and add them to our questions array
     for (int i = 0; i < jsonArray.count; i++)
     {
-//        NSDictionary *jsonElement = jsonArray[i];
-        NSDictionary *jsonElement = jsonArray;
+        NSLog(@"A question was downloaded and is been processed");
+        
+        NSDictionary *jsonElement = jsonArray[i];
+//        NSDictionary *jsonElement = jsonArray;
         
         // Create a new question object and set its props to JsonElement properties
         Question *newQuestion = [[Question alloc] initWithUid:[jsonElement[@"id"] intValue] question:jsonElement[@"question"] answer:jsonElement[@"answer"] keywords:jsonElement[@"keywords"] targets:jsonElement[@"targets"] ageRange:jsonElement[@"ages"] numberOfVotes:[jsonElement[@"votes"] intValue]];
