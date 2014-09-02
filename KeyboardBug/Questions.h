@@ -16,5 +16,6 @@
 
 -(void)loadQuestions;
 -(Question *)getQuestionWithIndex:(int)index;
+-(int)numberOfQuestions;
 
 @end

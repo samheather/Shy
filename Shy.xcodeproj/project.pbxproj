@@ -24,6 +24,8 @@
 		5FBD1C801861AE8F0073B7E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD1C7E1861AE8F0073B7E6 /* InfoPlist.strings */; };
 		5FBD1C821861AE8F0073B7E6 /* KeyboardBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD1C811861AE8F0073B7E6 /* KeyboardBugTests.m */; };
 		7E29D79A19B62BC1002FFD3F /* QuestionStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29D79919B62BC1002FFD3F /* QuestionStickerView.m */; };
+		7E29D79D19B67836002FFD3F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E29D79C19B67836002FFD3F /* Default.png */; };
+		7E29D7A019B67A1E002FFD3F /* panda-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E29D79F19B67A1E002FFD3F /* panda-small.png */; };
 		7EA4B6DF19B4C3B4005BB9BC /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6DE19B4C3B4005BB9BC /* Question.m */; };
 		7EA4B6E219B4D782005BB9BC /* Questions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6E119B4D782005BB9BC /* Questions.m */; };
 		7EA4B6EE19B516BC005BB9BC /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4B6E419B516BC005BB9BC /* Icon-29.png */; };
@@ -73,6 +75,8 @@
 		5FBD1C811861AE8F0073B7E6 /* KeyboardBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardBugTests.m; sourceTree = "<group>"; };
 		7E29D79819B62BC1002FFD3F /* QuestionStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionStickerView.h; sourceTree = "<group>"; };
 		7E29D79919B62BC1002FFD3F /* QuestionStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionStickerView.m; sourceTree = "<group>"; };
+		7E29D79C19B67836002FFD3F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Downloads/Default.png; sourceTree = "<group>"; };
+		7E29D79F19B67A1E002FFD3F /* panda-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "panda-small.png"; path = "../../Downloads/panda-small.png"; sourceTree = "<group>"; };
 		7EA4B6DD19B4C3B4005BB9BC /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		7EA4B6DE19B4C3B4005BB9BC /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		7EA4B6E019B4D782005BB9BC /* Questions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Questions.h; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 		5FBD1C4A1861AE8F0073B7E6 = {
 			isa = PBXGroup;
 			children = (
+				7E29D79E19B67A15002FFD3F /* Other Graphics */,
+				7E29D79B19B67826002FFD3F /* Splash Screens */,
 				7EA4B6E319B51676005BB9BC /* Icons */,
 				5FBD1C5C1861AE8F0073B7E6 /* Shy */,
 				5FBD1C7B1861AE8F0073B7E6 /* KeyboardBugTests */,
@@ -195,6 +201,23 @@
 				5FBD1C7E1861AE8F0073B7E6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E29D79B19B67826002FFD3F /* Splash Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7E29D79C19B67836002FFD3F /* Default.png */,
+			);
+			name = "Splash Screens";
+			path = KeyboardBug;
+			sourceTree = "<group>";
+		};
+		7E29D79E19B67A15002FFD3F /* Other Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				7E29D79F19B67A1E002FFD3F /* panda-small.png */,
+			);
+			name = "Other Graphics";
 			sourceTree = "<group>";
 		};
 		7EA4B6E319B51676005BB9BC /* Icons */ = {
@@ -303,6 +326,8 @@
 				7EA4B6F219B516BC005BB9BC /* Icon-60.png in Resources */,
 				7EA4B6F119B516BC005BB9BC /* Icon-40@2x.png in Resources */,
 				7EA4B6F419B516BC005BB9BC /* Icon.png in Resources */,
+				7E29D79D19B67836002FFD3F /* Default.png in Resources */,
+				7E29D7A019B67A1E002FFD3F /* panda-small.png in Resources */,
 				7EA4B6EF19B516BC005BB9BC /* Icon-29@2x.png in Resources */,
 				7EA4B6F719B516BC005BB9BC /* iTunesArtwork1024 in Resources */,
 				7EA4B6EE19B516BC005BB9BC /* Icon-29.png in Resources */,

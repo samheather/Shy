@@ -102,4 +102,8 @@
     NSLog(@"Data is live");
 }
 
+-(int)numberOfQuestions {
+    return [questions count];
+}
+
 @end
