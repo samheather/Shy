@@ -38,6 +38,7 @@
 		7EA4B6F519B516BC005BB9BC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4B6EB19B516BC005BB9BC /* Icon@2x.png */; };
 		7EA4B6F619B516BC005BB9BC /* iTunesArtwork512 in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4B6EC19B516BC005BB9BC /* iTunesArtwork512 */; };
 		7EA4B6F719B516BC005BB9BC /* iTunesArtwork1024 in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4B6ED19B516BC005BB9BC /* iTunesArtwork1024 */; };
+		7EFAC28E19B7A05000B2C78B /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFAC28D19B7A05000B2C78B /* UserInformation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		7EA4B6EB19B516BC005BB9BC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../Google Drive/Shy/appicon/Icon@2x.png"; sourceTree = "<group>"; };
 		7EA4B6EC19B516BC005BB9BC /* iTunesArtwork512 */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork512; path = "../../../Google Drive/Shy/appicon/iTunesArtwork512"; sourceTree = "<group>"; };
 		7EA4B6ED19B516BC005BB9BC /* iTunesArtwork1024 */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork1024; path = "../../../Google Drive/Shy/appicon/iTunesArtwork1024"; sourceTree = "<group>"; };
+		7EFAC28C19B7A05000B2C78B /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
+		7EFAC28D19B7A05000B2C78B /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				7EA4B6DE19B4C3B4005BB9BC /* Question.m */,
 				7EA4B6E019B4D782005BB9BC /* Questions.h */,
 				7EA4B6E119B4D782005BB9BC /* Questions.m */,
+				7EFAC28C19B7A05000B2C78B /* UserInformation.h */,
+				7EFAC28D19B7A05000B2C78B /* UserInformation.m */,
 				5FBD1C6E1861AE8F0073B7E6 /* Images.xcassets */,
 				5FBD1C5D1861AE8F0073B7E6 /* Supporting Files */,
 			);
@@ -350,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FBD1C631861AE8F0073B7E6 /* main.m in Sources */,
+				7EFAC28E19B7A05000B2C78B /* UserInformation.m in Sources */,
 				7E29D79A19B62BC1002FFD3F /* QuestionStickerView.m in Sources */,
 				7EA4B6E219B4D782005BB9BC /* Questions.m in Sources */,
 				5FBD1C6D1861AE8F0073B7E6 /* MainViewController.m in Sources */,

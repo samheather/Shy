@@ -12,25 +12,23 @@
 
 @synthesize theView, questionForThisButton;
 
--(id)initWithQuestion:(Question*)inputQuestion withHeight:(int)height withIndex:(int)index {
+-(id)initWithQuestion:(Question*)inputQuestion withHeight:(int)initialHeight withIndex:(int)index isExpanded:(BOOL)isExpanded {
     self = [super init];
     if (self) {
         questionForThisButton = inputQuestion;
         
         // Initialise and set appearance
-        theView = [[UIButton alloc] initWithFrame:CGRectMake(10, 50+((10+height)*index), 300, height)];
+        if (!isExpanded) {
+            theView = [[UIButton alloc] initWithFrame:CGRectMake(10, 50+((10+initialHeight)*index), 300, initialHeight)];
+        }
+        else {
+            theView = [[UIButton alloc] initWithFrame:CGRectMake(10, 114, 300, initialHeight)];
+        }
         [theView setBackgroundColor:[UIColor whiteColor]];
         [theView.layer setShadowColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1].CGColor];
         [theView.layer setShadowOffset:CGSizeMake(0, 0)];
         [theView.layer setShadowOpacity:0.8];
         [theView.layer setShadowRadius:1];
-        
-        // Set tap behaviour
-//        [theView addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
-//        [theView addTarget:self action:@selector(pressUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
-//        [theView addTarget:self action:@selector(pressUpInside:) forControlEvents:UIControlEventTouchUpInside];
-        
-//        [theView.layer setBorderColor:aqua];
         
         UIImageView *sideBar = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,10,theView.frame.size.height)];
         [sideBar setBackgroundColor:[UIColor blueColor]];
@@ -40,7 +38,7 @@
         [questionTitle setText:[inputQuestion question]];
         [theView addSubview:questionTitle];
         
-        UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(20, 35,theView.frame.size.width-20,height-35-10)];
+        UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(20, 35,theView.frame.size.width-20,initialHeight-35-10)];
         [answer setText:[inputQuestion answer]];
 //        answer.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
         [answer setNumberOfLines:4];
@@ -49,9 +47,20 @@
         
         [theView.layer setCornerRadius:4];
         theView.layer.masksToBounds = YES;
-                                
     }
     return self;
+}
+
+-(void)expandStickerView {
+    [UIView animateWithDuration:1.0
+                          delay:0.5
+                        options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         theView.frame = CGRectMake(10, 114, 300, 250);
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
 }
 
 -(void)pressDown:(id)sender {
