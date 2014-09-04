@@ -17,6 +17,7 @@
 
 int heightOfCard = 150;
 Questions *qs;
+UIButton *pandaView;
 
 - (void)viewDidLoad
 {
@@ -27,10 +28,11 @@ Questions *qs;
     self.navigationController.navigationBar.barTintColor =
         [UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"panda-small"]];
-    imageView.frame = CGRectMake(self.view.frame.size.width-31,20,32,44);
-    [self.navigationController.view addSubview:imageView];
-    //////
+    pandaView = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-31,20,32,44)];
+    [pandaView setImage:[UIImage imageNamed:@"panda-small"] forState:UIControlStateNormal];
+    [pandaView addTarget:self action:@selector(hidePanda) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.view addSubview:pandaView];
+
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
 //    [searchBar setText:@"What are you shy about?"];
@@ -90,6 +92,41 @@ Questions *qs;
 -(void)tapUpOutside:(id)sender {
     UIButton *button = sender;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+}
+
+-(void)hidePanda {
+    NSLog(@"Animating panda");
+    [UIView animateWithDuration:0.2
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         CGPoint pandaCenter = pandaView.center;
+                         pandaCenter.x = pandaCenter.x-3;
+                         pandaView.center = pandaCenter;
+                     }
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:0.5
+                                               delay:0.0
+                                             options: UIViewAnimationOptionCurveEaseOut
+                                          animations:^{
+                                              CGPoint pandaCenter = pandaView.center;
+                                              pandaCenter.x = pandaCenter.x+3+pandaView.frame.size.width;
+                                              pandaView.center = pandaCenter;
+                                          }
+                                          completion:^(BOOL finished){
+                                              [UIView animateWithDuration:4.0
+                                                                    delay:5.0
+                                                                  options: UIViewAnimationOptionCurveEaseOut
+                                                               animations:^{
+                                                                   CGPoint pandaCenter = pandaView.center;
+                                                                   pandaCenter.x = pandaCenter.x-pandaView.frame.size.width;
+                                                                   pandaView.center = pandaCenter;
+                                                               }
+                                                               completion:^(BOOL finished){
+                                                                   // Done
+                                                               }];
+                                          }];
+                     }];
 }
 
 - (void)didReceiveMemoryWarning

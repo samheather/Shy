@@ -10,12 +10,13 @@
 
 @implementation Question
 
-@synthesize uid, question, answer, keywords, targets, ages, votes, splitKeywords, splitTargets, minAge, maxAge;
+@synthesize uid, question, answer, internalKeywords, externalKeywords, targets, ages, votes, splitInternalKeywords, splitExternalKeywords, splitTargets, minAge, maxAge;
 
 - (id)initWithUid:(int)inputUid
          question:(NSString *)inputQuestion
            answer:(NSString *)inputAnswer
-         keywords:(NSString *)inputKeywords
+ internalKeywords:(NSString *)inputInternalKeywords
+ externalKeywords:(NSString *)inputExternalKeywords
           targets:(NSString *)inputTargets
          ageRange:(NSString *)inputAges
     numberOfVotes:(int)inputVotes
@@ -25,13 +26,16 @@
         self.uid = inputUid;
         self.question = inputQuestion;
         self.answer = inputAnswer;
-        self.keywords = inputKeywords;
+        self.internalKeywords = inputInternalKeywords;
+        self.externalKeywords = inputExternalKeywords;
         self.targets = inputTargets;
         self.ages = inputAges;
         self.votes = inputVotes;
         
-        splitKeywords = [NSMutableArray arrayWithArray:[keywords componentsSeparatedByString:@","]];
+        splitInternalKeywords = [NSMutableArray arrayWithArray:[internalKeywords componentsSeparatedByString:@","]];
+        splitExternalKeywords = [NSMutableArray arrayWithArray:[externalKeywords componentsSeparatedByString:@","]];
         splitTargets = [NSMutableArray arrayWithArray:[targets componentsSeparatedByString:@","]];
+        // TODO Handle no age.
         NSArray *splitAges = [inputAges componentsSeparatedByString:@"-"];
         minAge = [[splitAges objectAtIndex:0] intValue];
         maxAge = [[splitAges objectAtIndex:1] intValue];

@@ -83,7 +83,7 @@
         NSDictionary *jsonElement = jsonArray[i];
         
         // Create a new question object and set its props to JsonElement properties
-        Question *newQuestion = [[Question alloc] initWithUid:[jsonElement[@"id"] intValue] question:jsonElement[@"question"] answer:jsonElement[@"answer"] keywords:jsonElement[@"keywords"] targets:jsonElement[@"targets"] ageRange:jsonElement[@"ages"] numberOfVotes:[jsonElement[@"votes"] intValue]];
+        Question *newQuestion = [[Question alloc] initWithUid:[jsonElement[@"id"] intValue] question:jsonElement[@"question"] answer:jsonElement[@"answer"] internalKeywords:jsonElement[@"internalKeywords"] externalKeywords:jsonElement[@"externalKeywords"] targets:jsonElement[@"targets"] ageRange:jsonElement[@"ages"] numberOfVotes:[jsonElement[@"votes"] intValue]];
         
         // Add this question to the locations array
         [_locations addObject:newQuestion];

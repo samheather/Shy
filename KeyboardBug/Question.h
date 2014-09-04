@@ -13,12 +13,14 @@
 @property (nonatomic) int uid;
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic, strong) NSString *answer;
-@property (nonatomic, strong) NSString *keywords;
+@property (nonatomic, strong) NSString *internalKeywords;
+@property (nonatomic, strong) NSString *externalKeywords;
 @property (nonatomic, strong) NSString *targets;
 @property (nonatomic, strong) NSString *ages;
 @property (nonatomic) int votes; // int?
 
-@property (nonatomic, strong) NSMutableArray *splitKeywords;
+@property (nonatomic, strong) NSMutableArray *splitInternalKeywords;
+@property (nonatomic, strong) NSMutableArray *splitExternalKeywords;
 @property (nonatomic, strong) NSMutableArray *splitTargets;
 @property (nonatomic) int minAge;
 @property (nonatomic) int maxAge;
@@ -26,7 +28,8 @@
 - (id)initWithUid:(int)inputUid
          question:(NSString *)inputQuestion
            answer:(NSString *)inputAnswer
-         keywords:(NSString *)inputKeywords
+ internalKeywords:(NSString *)inputInternalKeywords
+ externalKeywords:(NSString *)inputExternalKeywords
           targets:(NSString *)inputTargets
          ageRange:(NSString *)inputAges
     numberOfVotes:(int)inputVotes;

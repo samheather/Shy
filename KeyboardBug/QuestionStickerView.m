@@ -52,14 +52,13 @@
 }
 
 -(void)expandStickerView {
-    [UIView animateWithDuration:1.0
-                          delay:0.5
-                        options: UIViewAnimationCurveEaseOut
+    [UIView animateWithDuration:0.0
+                          delay:0.3
+                        options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          theView.frame = CGRectMake(10, 114, 300, 250);
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"Done!");
                      }];
 }
 
