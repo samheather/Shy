@@ -52,8 +52,8 @@
 }
 
 -(void)expandStickerView {
-    [UIView animateWithDuration:0.0
-                          delay:0.3
+    [UIView animateWithDuration:0.3
+                          delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          theView.frame = CGRectMake(10, 114, 300, 250);

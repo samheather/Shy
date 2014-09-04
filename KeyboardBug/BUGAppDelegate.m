@@ -11,7 +11,7 @@
 {
     
 //    [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
-    sleep(2);
+//    sleep(2);
     
     // Override point for customization after application launch.
     return YES;

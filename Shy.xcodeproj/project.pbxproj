@@ -24,8 +24,6 @@
 		5FBD1C801861AE8F0073B7E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD1C7E1861AE8F0073B7E6 /* InfoPlist.strings */; };
 		5FBD1C821861AE8F0073B7E6 /* KeyboardBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD1C811861AE8F0073B7E6 /* KeyboardBugTests.m */; };
 		7E29D79A19B62BC1002FFD3F /* QuestionStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E29D79919B62BC1002FFD3F /* QuestionStickerView.m */; };
-		7E29D79D19B67836002FFD3F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E29D79C19B67836002FFD3F /* Default.png */; };
-		7E29D7A019B67A1E002FFD3F /* panda-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E29D79F19B67A1E002FFD3F /* panda-small.png */; };
 		7EA4B6DF19B4C3B4005BB9BC /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6DE19B4C3B4005BB9BC /* Question.m */; };
 		7EA4B6E219B4D782005BB9BC /* Questions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6E119B4D782005BB9BC /* Questions.m */; };
 		7EA4B6EE19B516BC005BB9BC /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4B6E419B516BC005BB9BC /* Icon-29.png */; };
@@ -39,6 +37,17 @@
 		7EA4B6F619B516BC005BB9BC /* iTunesArtwork512 in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4B6EC19B516BC005BB9BC /* iTunesArtwork512 */; };
 		7EA4B6F719B516BC005BB9BC /* iTunesArtwork1024 in Resources */ = {isa = PBXBuildFile; fileRef = 7EA4B6ED19B516BC005BB9BC /* iTunesArtwork1024 */; };
 		7EFAC28E19B7A05000B2C78B /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFAC28D19B7A05000B2C78B /* UserInformation.m */; };
+		7EFAC29019B7ECAA00B2C78B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC28F19B7ECAA00B2C78B /* Default.png */; };
+		7EFAC29219B7ECBA00B2C78B /* panda-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29119B7ECBA00B2C78B /* panda-small.png */; };
+		7EFAC29C19B7ECC700B2C78B /* drugsandalcohol-darkgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29319B7ECC700B2C78B /* drugsandalcohol-darkgreen.png */; };
+		7EFAC29D19B7ECC700B2C78B /* family-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29419B7ECC700B2C78B /* family-orange.png */; };
+		7EFAC29E19B7ECC700B2C78B /* feelings-deeppurple.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29519B7ECC700B2C78B /* feelings-deeppurple.png */; };
+		7EFAC29F19B7ECC700B2C78B /* friends-yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29619B7ECC700B2C78B /* friends-yellow.png */; };
+		7EFAC2A019B7ECC700B2C78B /* health-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29719B7ECC700B2C78B /* health-green.png */; };
+		7EFAC2A119B7ECC700B2C78B /* relationships-purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29819B7ECC700B2C78B /* relationships-purple.png */; };
+		7EFAC2A219B7ECC700B2C78B /* school-turqouise.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29919B7ECC700B2C78B /* school-turqouise.png */; };
+		7EFAC2A319B7ECC700B2C78B /* sex-redish.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29A19B7ECC700B2C78B /* sex-redish.png */; };
+		7EFAC2A419B7ECC700B2C78B /* yourbody-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29B19B7ECC700B2C78B /* yourbody-blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +85,6 @@
 		5FBD1C811861AE8F0073B7E6 /* KeyboardBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardBugTests.m; sourceTree = "<group>"; };
 		7E29D79819B62BC1002FFD3F /* QuestionStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionStickerView.h; sourceTree = "<group>"; };
 		7E29D79919B62BC1002FFD3F /* QuestionStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionStickerView.m; sourceTree = "<group>"; };
-		7E29D79C19B67836002FFD3F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Downloads/Default.png; sourceTree = "<group>"; };
-		7E29D79F19B67A1E002FFD3F /* panda-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "panda-small.png"; path = "../../Downloads/panda-small.png"; sourceTree = "<group>"; };
 		7EA4B6DD19B4C3B4005BB9BC /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		7EA4B6DE19B4C3B4005BB9BC /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		7EA4B6E019B4D782005BB9BC /* Questions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Questions.h; sourceTree = "<group>"; };
@@ -94,6 +101,17 @@
 		7EA4B6ED19B516BC005BB9BC /* iTunesArtwork1024 */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork1024; path = "../../../Google Drive/Shy/appicon/iTunesArtwork1024"; sourceTree = "<group>"; };
 		7EFAC28C19B7A05000B2C78B /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		7EFAC28D19B7A05000B2C78B /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
+		7EFAC28F19B7ECAA00B2C78B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Splash/Default.png; sourceTree = "<group>"; };
+		7EFAC29119B7ECBA00B2C78B /* panda-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "panda-small.png"; path = "KeyboardBug/Images/panda-small.png"; sourceTree = "<group>"; };
+		7EFAC29319B7ECC700B2C78B /* drugsandalcohol-darkgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drugsandalcohol-darkgreen.png"; path = "KeyboardBug/Images/drugsandalcohol-darkgreen.png"; sourceTree = "<group>"; };
+		7EFAC29419B7ECC700B2C78B /* family-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "family-orange.png"; path = "KeyboardBug/Images/family-orange.png"; sourceTree = "<group>"; };
+		7EFAC29519B7ECC700B2C78B /* feelings-deeppurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "feelings-deeppurple.png"; path = "KeyboardBug/Images/feelings-deeppurple.png"; sourceTree = "<group>"; };
+		7EFAC29619B7ECC700B2C78B /* friends-yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "friends-yellow.png"; path = "KeyboardBug/Images/friends-yellow.png"; sourceTree = "<group>"; };
+		7EFAC29719B7ECC700B2C78B /* health-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "health-green.png"; path = "KeyboardBug/Images/health-green.png"; sourceTree = "<group>"; };
+		7EFAC29819B7ECC700B2C78B /* relationships-purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "relationships-purple.png"; path = "KeyboardBug/Images/relationships-purple.png"; sourceTree = "<group>"; };
+		7EFAC29919B7ECC700B2C78B /* school-turqouise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "school-turqouise.png"; path = "KeyboardBug/Images/school-turqouise.png"; sourceTree = "<group>"; };
+		7EFAC29A19B7ECC700B2C78B /* sex-redish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sex-redish.png"; path = "KeyboardBug/Images/sex-redish.png"; sourceTree = "<group>"; };
+		7EFAC29B19B7ECC700B2C78B /* yourbody-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "yourbody-blue.png"; path = "KeyboardBug/Images/yourbody-blue.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +141,7 @@
 		5FBD1C4A1861AE8F0073B7E6 = {
 			isa = PBXGroup;
 			children = (
+				7EFAC2A519B7ECD400B2C78B /* Gradients */,
 				7E29D79E19B67A15002FFD3F /* Other Graphics */,
 				7E29D79B19B67826002FFD3F /* Splash Screens */,
 				7EA4B6E319B51676005BB9BC /* Icons */,
@@ -211,7 +230,7 @@
 		7E29D79B19B67826002FFD3F /* Splash Screens */ = {
 			isa = PBXGroup;
 			children = (
-				7E29D79C19B67836002FFD3F /* Default.png */,
+				7EFAC28F19B7ECAA00B2C78B /* Default.png */,
 			);
 			name = "Splash Screens";
 			path = KeyboardBug;
@@ -220,7 +239,7 @@
 		7E29D79E19B67A15002FFD3F /* Other Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				7E29D79F19B67A1E002FFD3F /* panda-small.png */,
+				7EFAC29119B7ECBA00B2C78B /* panda-small.png */,
 			);
 			name = "Other Graphics";
 			sourceTree = "<group>";
@@ -241,6 +260,22 @@
 			);
 			name = Icons;
 			path = KeyboardBug;
+			sourceTree = "<group>";
+		};
+		7EFAC2A519B7ECD400B2C78B /* Gradients */ = {
+			isa = PBXGroup;
+			children = (
+				7EFAC29319B7ECC700B2C78B /* drugsandalcohol-darkgreen.png */,
+				7EFAC29419B7ECC700B2C78B /* family-orange.png */,
+				7EFAC29519B7ECC700B2C78B /* feelings-deeppurple.png */,
+				7EFAC29619B7ECC700B2C78B /* friends-yellow.png */,
+				7EFAC29719B7ECC700B2C78B /* health-green.png */,
+				7EFAC29819B7ECC700B2C78B /* relationships-purple.png */,
+				7EFAC29919B7ECC700B2C78B /* school-turqouise.png */,
+				7EFAC29A19B7ECC700B2C78B /* sex-redish.png */,
+				7EFAC29B19B7ECC700B2C78B /* yourbody-blue.png */,
+			);
+			name = Gradients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,18 +359,27 @@
 				7EA4B6F619B516BC005BB9BC /* iTunesArtwork512 in Resources */,
 				7EA4B6F519B516BC005BB9BC /* Icon@2x.png in Resources */,
 				7EA4B6F319B516BC005BB9BC /* Icon-60@2x.png in Resources */,
+				7EFAC29019B7ECAA00B2C78B /* Default.png in Resources */,
+				7EFAC2A319B7ECC700B2C78B /* sex-redish.png in Resources */,
+				7EFAC29F19B7ECC700B2C78B /* friends-yellow.png in Resources */,
 				5FBD1C611861AE8F0073B7E6 /* InfoPlist.strings in Resources */,
+				7EFAC2A019B7ECC700B2C78B /* health-green.png in Resources */,
+				7EFAC29C19B7ECC700B2C78B /* drugsandalcohol-darkgreen.png in Resources */,
 				5FBD1C6A1861AE8F0073B7E6 /* Main.storyboard in Resources */,
 				7EA4B6F019B516BC005BB9BC /* Icon-40.png in Resources */,
 				5F85BF051861B5C100C3504E /* PersonalInformationViewController.xib in Resources */,
 				7EA4B6F219B516BC005BB9BC /* Icon-60.png in Resources */,
 				7EA4B6F119B516BC005BB9BC /* Icon-40@2x.png in Resources */,
 				7EA4B6F419B516BC005BB9BC /* Icon.png in Resources */,
-				7E29D79D19B67836002FFD3F /* Default.png in Resources */,
-				7E29D7A019B67A1E002FFD3F /* panda-small.png in Resources */,
+				7EFAC29E19B7ECC700B2C78B /* feelings-deeppurple.png in Resources */,
+				7EFAC29219B7ECBA00B2C78B /* panda-small.png in Resources */,
+				7EFAC2A119B7ECC700B2C78B /* relationships-purple.png in Resources */,
+				7EFAC2A419B7ECC700B2C78B /* yourbody-blue.png in Resources */,
+				7EFAC2A219B7ECC700B2C78B /* school-turqouise.png in Resources */,
 				7EA4B6EF19B516BC005BB9BC /* Icon-29@2x.png in Resources */,
 				7EA4B6F719B516BC005BB9BC /* iTunesArtwork1024 in Resources */,
 				7EA4B6EE19B516BC005BB9BC /* Icon-29.png in Resources */,
+				7EFAC29D19B7ECC700B2C78B /* family-orange.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
