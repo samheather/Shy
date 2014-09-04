@@ -32,6 +32,7 @@
     
 }
 
+// TODO Move this data to a UserInformation object, use NSUserDefaults on this object.
 -(void)setupInterface {
     defaults = [NSUserDefaults standardUserDefaults];
     

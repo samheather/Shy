@@ -44,7 +44,7 @@ UIButton *pandaView;
     qs = [[Questions alloc] init];
     [qs loadQuestions];
     
-    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
 }
 
 - (void)testDataPull {
@@ -75,14 +75,25 @@ UIButton *pandaView;
         self.view.frame.size.width,
         self.navigationController.navigationBar.frame.size.height+self.navigationController.navigationBar.frame.origin.y+1)]; // +1 for random thin white line.
     [greyOutTop setBackgroundColor:[UIColor blackColor]];
-    [greyOutTop.layer setOpacity:0.7];
+    [greyOutTop.layer setOpacity:0.0];
     [self.navigationController.view addSubview:greyOutTop];
     
     // TODO change 400 below to the dynamic height of the screen minus the top bar.
     UIImageView *greyOutMain = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
     [greyOutMain setBackgroundColor:[UIColor blackColor]];
-    [greyOutMain.layer setOpacity:0.7];
+    [greyOutMain.layer setOpacity:0.0];
     [self.view addSubview:greyOutMain];
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [greyOutTop.layer setOpacity:0.85];
+                         [greyOutMain.layer setOpacity:0.85];
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
 
     QuestionStickerView *qsv = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:0] withHeight:heightOfCard withIndex:0 isExpanded:true];
     [self.view addSubview:[qsv theView]];

@@ -12,6 +12,8 @@
 
 @synthesize theView, questionForThisButton;
 
+UIImageView *sideBar;
+
 -(id)initWithQuestion:(Question*)inputQuestion withHeight:(int)initialHeight withIndex:(int)index isExpanded:(BOOL)isExpanded {
     self = [super init];
     if (self) {
@@ -30,8 +32,11 @@
         [theView.layer setShadowOpacity:0.8];
         [theView.layer setShadowRadius:1];
         
-        UIImageView *sideBar = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,10,theView.frame.size.height)];
-        [sideBar setBackgroundColor:[UIColor blueColor]];
+        // TODO Finish this code to use the return sidebar gradient below and handle null for grey background.
+        // TODO check handling of null?  Since I don't use this specificaly now, sets grey and puts image on top.
+        sideBar = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,10,theView.frame.size.height)];
+        [sideBar setBackgroundColor:[UIColor grayColor]];
+        [sideBar setImage:[self getSideBarImage:[[questionForThisButton splitExternalKeywords] objectAtIndex:0]]];
         [theView addSubview:sideBar];
         
         UILabel *questionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,10,theView.frame.size.width-20,15)];
@@ -57,6 +62,9 @@
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          theView.frame = CGRectMake(10, 114, 300, 250);
+                         CGRect tempSideBarFrame = sideBar.frame;
+                         tempSideBarFrame.size.height = theView.frame.size.height;
+                         sideBar.frame = tempSideBarFrame;
                      }
                      completion:^(BOOL finished){
                      }];
@@ -78,6 +86,37 @@
     NSLog(@"Touch up inside");
 //    [theView setBackgroundColor:[UIColor whiteColor]];
     //    theView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
+}
+
+-(UIImage *)getSideBarImage:(NSString *)category {
+    if ([category isEqualToString:@"Drugs & Alcohol"]) {
+        return [UIImage imageNamed:@"drugsandalcohol-darkgreen"];
+    }
+    else if ([category isEqualToString:@"Family"]) {
+        return [UIImage imageNamed:@"family-orange"];
+    }
+    else if ([category isEqualToString:@"Feelings"]) {
+        return [UIImage imageNamed:@"feelings-deeppurple"];
+    }
+    else if ([category isEqualToString:@"Friends"]) {
+        return [UIImage imageNamed:@"friends-yellow"];
+    }
+    else if ([category isEqualToString:@"Health"]) {
+        return [UIImage imageNamed:@"health-green"];
+    }
+    else if ([category isEqualToString:@"Relationships"]) {
+        return [UIImage imageNamed:@"relationships-purple"];
+    }
+    else if ([category isEqualToString:@"School"]) {
+        return [UIImage imageNamed:@"school-turqouise"];
+    }
+    else if ([category isEqualToString:@"Sex"]) {
+        return [UIImage imageNamed:@"sex-redish"];
+    }
+    else if ([category isEqualToString:@"Your Body"]) {
+        return [UIImage imageNamed:@"yourbody-blue"];
+    }
+    return NULL;
 }
 
 @end
