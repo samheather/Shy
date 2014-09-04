@@ -18,6 +18,9 @@
 int heightOfCard = 150;
 Questions *qs;
 UIButton *pandaView;
+QuestionStickerView *expandedView;
+UIButton *greyOutTop;
+UIButton *greyOutMain;
 
 - (void)viewDidLoad
 {
@@ -44,17 +47,26 @@ UIButton *pandaView;
     qs = [[Questions alloc] init];
     [qs loadQuestions];
     
-    [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
 }
 
 - (void)testDataPull {
-    NSLog(@"Doing test data pull");
+    NSLog(@"Doing card creation, will fail if no data was pulled");
+    
+    Question *noInternetQuestion = [[Question alloc] initWithUid:0 question:@"Question" answer:@"Answer" internalKeywords:@"internal,keywords" externalKeywords:@"Sex,Health" targets:@"male,female" ageRange:@"14-18" numberOfVotes:4];
+    [qs addQuestion:noInternetQuestion];
+    
+    NSLog(@"%d", [qs numberOfQuestions]);
+    
+    
     for (int i = 0; i<[qs numberOfQuestions]; i++) {
         QuestionStickerView *qsv = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:i] withHeight:heightOfCard withIndex:i isExpanded:FALSE];
         [[qsv theView] addTarget:self action:@selector(tapDown:) forControlEvents:UIControlEventTouchDown];
         [[qsv theView] addTarget:self action:@selector(tapUpInside:) forControlEvents:UIControlEventTouchUpInside];
         [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
         [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchDragOutside];
+        // TODO - this means if dragging inside it's 'deselected' - is this expected/desired behaviour?
+        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchDragInside];
         [cardScrollView addSubview:[qsv theView]];
     }
 }
@@ -71,17 +83,19 @@ UIButton *pandaView;
     
     // Grey out background
     // TODO change 40 below to the dynamic height of the top bar
-    UIImageView *greyOutTop = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,
+    greyOutTop = [[UIButton alloc] initWithFrame:CGRectMake(0,0,
         self.view.frame.size.width,
         self.navigationController.navigationBar.frame.size.height+self.navigationController.navigationBar.frame.origin.y+1)]; // +1 for random thin white line.
     [greyOutTop setBackgroundColor:[UIColor blackColor]];
     [greyOutTop.layer setOpacity:0.0];
+    [greyOutTop addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:greyOutTop];
     
     // TODO change 400 below to the dynamic height of the screen minus the top bar.
-    UIImageView *greyOutMain = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+    greyOutMain = [[UIButton alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
     [greyOutMain setBackgroundColor:[UIColor blackColor]];
     [greyOutMain.layer setOpacity:0.0];
+    [greyOutMain addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:greyOutMain];
     
     [UIView animateWithDuration:0.3
@@ -95,14 +109,27 @@ UIButton *pandaView;
                          NSLog(@"Done!");
                      }];
 
-    QuestionStickerView *qsv = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:0] withHeight:heightOfCard withIndex:0 isExpanded:true];
-    [self.view addSubview:[qsv theView]];
-    [qsv expandStickerView];
+    expandedView = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:0] withHeight:heightOfCard withIndex:0 isExpanded:true];
+    [self.view addSubview:[expandedView theView]];
+    [expandedView expandStickerView];
 }
 
 -(void)tapUpOutside:(id)sender {
     UIButton *button = sender;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+}
+
+-(void)closeExpandedCard {
+    [expandedView contractStickerView];
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [greyOutTop.layer setOpacity:0.0];
+                         [greyOutMain.layer setOpacity:0.0];
+                     }
+                     completion:^(BOOL finished){
+                     }];
 }
 
 -(void)hidePanda {

@@ -17,6 +17,7 @@
 
 - (id)init {
     self = [super init];
+    questions = [[NSMutableArray alloc] init];
     liveData = FALSE;
     return self;
 }
@@ -36,6 +37,10 @@
     else {
         return NULL;
     }
+}
+
+-(void)addQuestion:(Question *)newQuestion {
+    [questions addObject:newQuestion];
 }
 
 ////////

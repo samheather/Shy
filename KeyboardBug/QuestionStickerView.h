@@ -13,6 +13,7 @@
 
 -(id)initWithQuestion:(Question*)inputQuestion withHeight:(int)initialHeight withIndex:(int)index isExpanded:(BOOL)isExpanded;
 -(void)expandStickerView;
+-(void)contractStickerView;
 -(UIImage *)getSideBarImage:(NSString *)category;
 
 @property UIButton *theView;

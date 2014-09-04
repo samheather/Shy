@@ -61,12 +61,29 @@ UIImageView *sideBar;
                           delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
+                         // TODO fix below constant of 250.
                          theView.frame = CGRectMake(10, 114, 300, 250);
                          CGRect tempSideBarFrame = sideBar.frame;
                          tempSideBarFrame.size.height = theView.frame.size.height;
                          sideBar.frame = tempSideBarFrame;
                      }
                      completion:^(BOOL finished){
+                     }];
+}
+
+-(void)contractStickerView {
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         // TODO fix below constant of 150.
+                         theView.frame = CGRectMake(10, 114, 300, 150);
+                         CGRect tempSideBarFrame = sideBar.frame;
+                         tempSideBarFrame.size.height = theView.frame.size.height;
+                         sideBar.frame = tempSideBarFrame;
+                     }
+                     completion:^(BOOL finished){
+                         [self.theView removeFromSuperview];
                      }];
 }
 

@@ -17,5 +17,6 @@
 -(void)loadQuestions;
 -(Question *)getQuestionWithIndex:(int)index;
 -(int)numberOfQuestions;
+-(void)addQuestion:(Question *)newQuestion;
 
 @end
