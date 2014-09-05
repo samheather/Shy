@@ -80,32 +80,6 @@ UIButton *greyOutMain;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
 }
 
--(void)tapUpInside:(id)sender {
-    UIButton *button = sender;
-    button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
-    
-    CGRect frameOfButtonInThisView = [self.view convertRect:button.frame fromView:cardScrollView];
-    CGRect tempButtonFrame = button.frame;
-    // TODO Static 60 below - nav bar + status bar
-    tempButtonFrame.origin.y = tempButtonFrame.origin.y-frameOfButtonInThisView.origin.y+50+64;
-    tempButtonFrame.size.height = self.view.frame.size.height-100;
-    // TODO expand the button in height.
-    
-    
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         [button setFrame:tempButtonFrame];
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
-    
-    
-}
-
-
 -(void)tapUpInsideOld:(id)sender {
     UIButton *button = sender;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
