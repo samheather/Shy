@@ -47,14 +47,17 @@ UIButton *greyOutMain;
     qs = [[Questions alloc] init];
     [qs loadQuestions];
     
-    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
 }
 
 - (void)testDataPull {
     NSLog(@"Doing card creation, will fail if no data was pulled");
     
-    Question *noInternetQuestion = [[Question alloc] initWithUid:0 question:@"Question" answer:@"Answer" internalKeywords:@"internal,keywords" externalKeywords:@"Sex,Health" targets:@"male,female" ageRange:@"14-18" numberOfVotes:4];
-    [qs addQuestion:noInternetQuestion];
+    Question *noInternetQuestion1 = [[Question alloc] initWithUid:0 question:@"Question1" answer:@"Answer1" internalKeywords:@"internal,keywords" externalKeywords:@"Sex,Health" targets:@"male,female" ageRange:@"14-18" numberOfVotes:4];
+    [qs addQuestion:noInternetQuestion1];
+    Question *noInternetQuestion2 = [[Question alloc] initWithUid:1 question:@"Question2" answer:@"Answer2" internalKeywords:@"internal,keywords" externalKeywords:@"Health" targets:@"female" ageRange:@"16-17" numberOfVotes:6];
+    [qs addQuestion:noInternetQuestion2];
+
     
     NSLog(@"%d", [qs numberOfQuestions]);
     
@@ -78,6 +81,32 @@ UIButton *greyOutMain;
 }
 
 -(void)tapUpInside:(id)sender {
+    UIButton *button = sender;
+    button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+    
+    CGRect frameOfButtonInThisView = [self.view convertRect:button.frame fromView:cardScrollView];
+    CGRect tempButtonFrame = button.frame;
+    // TODO Static 60 below - nav bar + status bar
+    tempButtonFrame.origin.y = tempButtonFrame.origin.y-frameOfButtonInThisView.origin.y+50+64;
+    tempButtonFrame.size.height = self.view.frame.size.height-100;
+    // TODO expand the button in height.
+    
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [button setFrame:tempButtonFrame];
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+    
+    
+}
+
+
+-(void)tapUpInsideOld:(id)sender {
     UIButton *button = sender;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
     

@@ -13,6 +13,9 @@
 @synthesize theView, questionForThisButton;
 
 UIImageView *sideBar;
+UILabel *questionTitle;
+UILabel *answer;
+CGRect originalStickerRect;
 
 -(id)initWithQuestion:(Question*)inputQuestion withHeight:(int)initialHeight withIndex:(int)index isExpanded:(BOOL)isExpanded {
     self = [super init];
@@ -20,6 +23,7 @@ UIImageView *sideBar;
         questionForThisButton = inputQuestion;
         
         // Initialise and set appearance
+        // TODO this might be redudant code.
         if (!isExpanded) {
             theView = [[UIButton alloc] initWithFrame:CGRectMake(10, 50+((10+initialHeight)*index), 300, initialHeight)];
         }
@@ -32,6 +36,8 @@ UIImageView *sideBar;
         [theView.layer setShadowOpacity:0.8];
         [theView.layer setShadowRadius:1];
         
+        originalStickerRect = theView.frame;
+        
         // TODO Finish this code to use the return sidebar gradient below and handle null for grey background.
         // TODO check handling of null?  Since I don't use this specificaly now, sets grey and puts image on top.
         sideBar = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,10,theView.frame.size.height)];
@@ -39,11 +45,11 @@ UIImageView *sideBar;
         [sideBar setImage:[self getSideBarImage:[[questionForThisButton splitExternalKeywords] objectAtIndex:0]]];
         [theView addSubview:sideBar];
         
-        UILabel *questionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,10,theView.frame.size.width-20,15)];
+        questionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,10,theView.frame.size.width-20,15)];
         [questionTitle setText:[inputQuestion question]];
         [theView addSubview:questionTitle];
         
-        UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(20, 35,theView.frame.size.width-20,initialHeight-35-10)];
+        answer = [[UILabel alloc] initWithFrame:CGRectMake(20, 35,theView.frame.size.width-20,initialHeight-35-10)];
         [answer setText:[inputQuestion answer]];
 //        answer.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
         [answer setNumberOfLines:4];
@@ -66,6 +72,7 @@ UIImageView *sideBar;
                          CGRect tempSideBarFrame = sideBar.frame;
                          tempSideBarFrame.size.height = theView.frame.size.height;
                          sideBar.frame = tempSideBarFrame;
+                         
                      }
                      completion:^(BOOL finished){
                      }];
