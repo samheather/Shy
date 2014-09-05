@@ -80,7 +80,7 @@ UIButton *greyOutMain;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
 }
 
--(void)tapUpInsideOld:(id)sender {
+-(void)tapUpInside:(id)sender {
     UIButton *button = sender;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
     
@@ -111,10 +111,16 @@ UIButton *greyOutMain;
                      completion:^(BOOL finished){
                          NSLog(@"Done!");
                      }];
-
-    expandedView = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:0] withHeight:heightOfCard withIndex:0 isExpanded:true];
-    [self.view addSubview:[expandedView theView]];
-    [expandedView expandStickerView];
+    
+    // Move original from whatever position to the top of the screen.
+    [button moveToTopOfView:self.view];
+    // Hide the original
+    // Create duplicate over the top in a scroll view.
+    // Expand it.
+    
+//    expandedView = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:0] withHeight:heightOfCard withIndex:0 isExpanded:true];
+//    [self.view addSubview:[expandedView theView]];
+//    [expandedView expandStickerView];
 }
 
 -(void)tapUpOutside:(id)sender {
