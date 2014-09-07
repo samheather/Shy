@@ -9,7 +9,6 @@
     IBOutlet UIScrollView *cardScrollView;
 }
 
--(UIView *)getView;
 -(void)greyOutBackground;
 
 @end

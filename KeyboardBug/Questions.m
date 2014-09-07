@@ -108,7 +108,7 @@
 }
 
 -(int)numberOfQuestions {
-    return [questions count];
+    return (int)[questions count];
 }
 
 @end

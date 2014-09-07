@@ -46,7 +46,7 @@
     // Load from NSUSerDefaults
     [sexualityPicker selectRow:[defaults integerForKey:@"sexualityPicker"] inComponent:0 animated:NO];
     [maleFemale setSelectedSegmentIndex:[defaults integerForKey:@"sex"]];
-    [age setText:[NSString stringWithFormat:@"%d", [defaults integerForKey:@"age"]]];
+    [age setText:[NSString stringWithFormat:@"%d", (int)[defaults integerForKey:@"age"]]];
 }
 
 // Sexuality Picker
@@ -81,13 +81,13 @@
 }
 
 // The number of columns of data
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
 // The number of rows of data
-- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return _pickerData.count;
 }

@@ -101,14 +101,14 @@ UIButton *greyOutMain;
         self.navigationController.navigationBar.frame.size.height+self.navigationController.navigationBar.frame.origin.y+1)]; // +1 for random thin white line.
     [greyOutTop setBackgroundColor:[UIColor blackColor]];
     [greyOutTop.layer setOpacity:0.0];
-//    [greyOutTop addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
+    [greyOutTop addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:greyOutTop];
     
     // TODO change 400 below to the dynamic height of the screen minus the top bar.
     greyOutMain = [[UIButton alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
     [greyOutMain setBackgroundColor:[UIColor blackColor]];
     [greyOutMain.layer setOpacity:0.0];
-//    [greyOutMain addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
+    [greyOutMain addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:greyOutMain];
     
     [UIView animateWithDuration:0.3
@@ -117,6 +117,19 @@ UIButton *greyOutMain;
                      animations:^{
                          [greyOutTop.layer setOpacity:0.85];
                          [greyOutMain.layer setOpacity:0.85];
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+}
+
+-(void)closeExpandedCard {
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [greyOutTop.layer setOpacity:0.0];
+                         [greyOutMain.layer setOpacity:0.0];
                      }
                      completion:^(BOOL finished){
                          NSLog(@"Done!");
