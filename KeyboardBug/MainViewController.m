@@ -30,7 +30,7 @@ UIButton *pandaView;
     [self.navigationController.navigationBar addSubview:pandaView];
     //    [self.navigationController.view addSubview:pandaView];
     
-    [categoriesScrollView.layer setCornerRadius:2.0];
+    [categoriesScrollView.layer setCornerRadius:3.0];
     [categoriesScrollView setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]]; /*#f3f3f3*/
     
     UIButton *friends = [[UIButton alloc] initWithFrame:CGRectMake(-1,
@@ -45,15 +45,19 @@ UIButton *pandaView;
     [friends.layer setBorderColor:[UIColor colorWithRed:0.592 green:0.592 blue:0.592 alpha:1].CGColor];
     friends.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     friends.contentEdgeInsets = UIEdgeInsetsMake(0, 14, 0, 0);
+    // Sqaure
     int squareSize = 44;
     // +1 for shadow offsetting the edge of scroll view.
-    UIView *square = [[UIView alloc] initWithFrame:CGRectMake(categoriesScrollView.frame.size.width-squareSize+1,
+    UIImageView *square = [[UIImageView alloc] initWithFrame:CGRectMake(categoriesScrollView.frame.size.width-squareSize+1,
                                                               0,
                                                               squareSize,
                                                               squareSize)];
+    [square setUserInteractionEnabled:FALSE];
     [square setBackgroundColor:[UIColor yellowColor]];
-    [friends addTarget:self action:@selector(openCategory:) forControlEvents:UIControlEventTouchUpInside];
+    [square setImage:[UIImage imageNamed:@"chevron"]];
+
     [friends addSubview:square];
+    [friends addTarget:self action:@selector(openCategory:) forControlEvents:UIControlEventTouchUpInside];
     [categoriesScrollView addSubview:friends];
     
     [self.navigationController setNavigationBarHidden:TRUE animated:FALSE];
@@ -113,13 +117,11 @@ UIButton *pandaView;
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.navigationController setToolbarHidden:TRUE];
     [self.navigationController setNavigationBarHidden:TRUE animated:TRUE];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-//    [self.navigationController setToolbarHidden:TRUE];
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
 }
 
