@@ -42,6 +42,7 @@ UIButton *greyOutMain;
     // Set white text style of titleBar, add Panda
     self.navigationController.navigationBar.barTintColor =
     [UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1];
+    // TODO can remove below line?
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     pandaView = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-31,20,32,44)];
     [pandaView setImage:[UIImage imageNamed:@"panda-small"] forState:UIControlStateNormal];

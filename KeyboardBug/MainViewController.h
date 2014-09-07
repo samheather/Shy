@@ -6,7 +6,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BUGViewController : UIViewController {
-    IBOutlet UIScrollView *cardScrollView;
+    IBOutlet UIImageView *categoriesImageView;
+    IBOutlet UIScrollView *categoriesScrollView;
 }
 
 @end
