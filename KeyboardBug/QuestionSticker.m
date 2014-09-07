@@ -84,7 +84,19 @@ UIView *topView;
     return self;
 }
 
--(void)expandAndMove {
+-(void)tapDown {
+    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
+}
+
+-(void)tapUpInside {
+    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+}
+
+-(void)tapUpOutside {
+    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+}
+
+-(void)moveUp {
 //    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
     
     [topView bringSubviewToFront:self];
@@ -105,15 +117,17 @@ UIView *topView;
     
     CGRect tempCurrentFrame = self.frame;
     tempCurrentFrame.origin.y = tempCurrentFrame.origin.y-frameInTopView.origin.y+82;
-    [self setFrame:tempCurrentFrame];
-}
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                            [self setFrame:tempCurrentFrame];
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
 
--(void)tapUpInside {
-//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
-}
-
--(void)tapUpOutside {
-//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
 }
 
 -(UIImage *)getSideBarImage:(NSString *)category {

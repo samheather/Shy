@@ -12,6 +12,9 @@
 @interface QuestionSticker : UIButton
 
 - (id)initWithQuestion:(Question*)inputQuestion withIndex:(int)index;
--(void)expandAndMove;
+-(void)tapDown;
+-(void)tapUpInside;
+-(void)tapUpOutside;
+-(void)moveUp;
 
 @end

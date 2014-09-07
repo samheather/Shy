@@ -78,16 +78,19 @@ UIButton *greyOutMain;
 }
 
 -(void)tapDown:(id)selector {
-
+    QuestionSticker *temp = selector;
+    [temp tapDown];
 }
 
 -(void)tapUpInside:(id)selector {
     QuestionSticker *temp = selector;
-    [temp expandAndMove];
+    [self greyOutBackground];
+    [temp moveUp];
 }
 
 -(void)tapUpOutside:(id)selector {
-    
+    QuestionSticker *temp = selector;
+    [temp tapUpOutside];
 }
 
 -(void)greyOutBackground {
