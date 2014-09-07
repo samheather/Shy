@@ -23,12 +23,13 @@ UIButton *pandaView;
 //QuestionStickerView *expandedView;
 UIButton *greyOutTop;
 UIButton *greyOutMain;
+NSString *category;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil category:(NSString *)inputCategory
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        category = inputCategory;
     }
     return self;
 }

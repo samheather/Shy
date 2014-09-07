@@ -12,6 +12,7 @@
     IBOutlet UIScrollView *cardScrollView;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil category:(NSString *)inputCategory;
 -(void)greyOutBackground;
 
 @end

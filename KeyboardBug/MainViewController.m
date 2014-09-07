@@ -16,9 +16,6 @@
 
 @implementation BUGViewController
 
-UIImageView *categoriesLogo;
-UIScrollView *mainCategoryView;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -26,28 +23,17 @@ UIScrollView *mainCategoryView;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     [self.navigationController setNavigationBarHidden:YES];
     
-    /*
-    int widthOfLogo = 141;
-    int heightOfLogo = 88;
-    categoriesLogo = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width-widthOfLogo)/2,
-                                                                   30,
-                                                                   widthOfLogo,
-                                                                   heightOfLogo)];
-    [categoriesLogo setImage:[UIImage imageNamed:@"categories"]];
-    [self.view addSubview:categoriesLogo];
+    [categoriesScrollView.layer setCornerRadius:2.0];
+    [categoriesScrollView setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]]; /*#f3f3f3*/
     
-    int border = 10;
-    // TODO fix static 400 below.  TODO Fix -30 in param2 for height cutting off panda feet.
-    mainCategoryView = [[UIScrollView alloc] initWithFrame:CGRectMake(border,
-                                                                      categoriesLogo.frame.size.height+categoriesLogo.frame.origin.y-20,
-                                                                      self.view.frame.size.width-(2*border),
-                                                                      400)];
-    [mainCategoryView setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]]; //#f3f3f3
-    [mainCategoryView.layer setCornerRadius:2.0];
-    [self.view addSubview:mainCategoryView];*/
     
-//    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
-//    [self.navigationController pushViewController:categoryViewController animated:YES];
+    
+}
+
+// TODO below hard coded category to Sex.
+-(void)openCategory:(NSString *)category {
+    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil category:@"Sex"];
+    [self.navigationController pushViewController:categoryViewController animated:YES];
 }
 
 - (IBAction)showGetPersonalInfoView:(id)sender
