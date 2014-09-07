@@ -7,7 +7,8 @@
 #import "PersonalInformationViewController.h"
 #import "Question.h"
 #import "Questions.h"
-#import "QuestionStickerView.h"
+//#import "QuestionStickerView.h"
+#import "QuestionSticker.h"
 
 @interface BUGViewController ()
 
@@ -18,7 +19,7 @@
 int heightOfCard = 150;
 Questions *qs;
 UIButton *pandaView;
-QuestionStickerView *expandedView;
+//QuestionStickerView *expandedView;
 UIButton *greyOutTop;
 UIButton *greyOutMain;
 
@@ -63,14 +64,17 @@ UIButton *greyOutMain;
     
     
     for (int i = 0; i<[qs numberOfQuestions]; i++) {
-        QuestionStickerView *qsv = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:i] withHeight:heightOfCard withIndex:i isExpanded:FALSE];
-        [[qsv theView] addTarget:self action:@selector(tapDown:) forControlEvents:UIControlEventTouchDown];
-        [[qsv theView] addTarget:self action:@selector(tapUpInside:) forControlEvents:UIControlEventTouchUpInside];
-        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
-        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchDragOutside];
-        // TODO - this means if dragging inside it's 'deselected' - is this expected/desired behaviour?
-        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchDragInside];
-        [cardScrollView addSubview:[qsv theView]];
+//        QuestionStickerView *qsv = [[QuestionStickerView alloc] initWithQuestion:[qs getQuestionWithIndex:i] withHeight:heightOfCard withIndex:i isExpanded:FALSE];
+//        [[qsv theView] addTarget:self action:@selector(tapDown:) forControlEvents:UIControlEventTouchDown];
+//        [[qsv theView] addTarget:self action:@selector(tapUpInside:) forControlEvents:UIControlEventTouchUpInside];
+//        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchUpOutside];
+//        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchDragOutside];
+//        // TODO - this means if dragging inside it's 'deselected' - is this expected/desired behaviour?
+//        [[qsv theView] addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchDragInside];
+//        [cardScrollView addSubview:[qsv theView]];
+        
+        QuestionSticker *qsv = [[QuestionSticker alloc] initWithQuestion:[qs getQuestionWithIndex:i] withIndex:i];
+        [cardScrollView addSubview:qsv];
     }
 }
 
@@ -113,7 +117,7 @@ UIButton *greyOutMain;
                      }];
     
     // Move original from whatever position to the top of the screen.
-    [button moveToTopOfView:self.view];
+//    [button moveToTopOfView:self.view];
     // Hide the original
     // Create duplicate over the top in a scroll view.
     // Expand it.
@@ -128,18 +132,18 @@ UIButton *greyOutMain;
     button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
 }
 
--(void)closeExpandedCard {
-    [expandedView contractStickerView];
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         [greyOutTop.layer setOpacity:0.0];
-                         [greyOutMain.layer setOpacity:0.0];
-                     }
-                     completion:^(BOOL finished){
-                     }];
-}
+//-(void)closeExpandedCard {
+//    [expandedView contractStickerView];
+//    [UIView animateWithDuration:0.3
+//                          delay:0.0
+//                        options: UIViewAnimationOptionCurveEaseOut
+//                     animations:^{
+//                         [greyOutTop.layer setOpacity:0.0];
+//                         [greyOutMain.layer setOpacity:0.0];
+//                     }
+//                     completion:^(BOOL finished){
+//                     }];
+//}
 
 -(void)hidePanda {
     NSLog(@"Animating panda");
