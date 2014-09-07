@@ -7,7 +7,8 @@
 //
 
 #import "QuestionSticker.h"
-#import "QUestion.h"
+#import "Question.h"
+#import "MainViewController.h"
 
 @implementation QuestionSticker
 
@@ -16,6 +17,8 @@ CGRect originalStickerRect;
 UIImageView *sideBar;
 UILabel *questionTitle;
 UILabel *answer;
+UIView *topView;
+//BUGViewController *topViewController;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -31,6 +34,8 @@ UILabel *answer;
 {
     self = [super initWithFrame:CGRectMake(10, 50+((10+initialHeight)*index), 300, initialHeight)];
     if (self) {
+        topView = self.superview;
+        
         [self setBackgroundColor:[UIColor whiteColor]];
         [self.layer setShadowColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1].CGColor];
         [self.layer setShadowOffset:CGSizeMake(0, 0)];
@@ -47,12 +52,12 @@ UILabel *answer;
         
         // Add in corner radius, shadows, questions and answers.
         
-        [self addTarget:self action:@selector(tapDown) forControlEvents:UIControlEventTouchDown];
-        [self addTarget:self action:@selector(tapUpInside) forControlEvents:UIControlEventTouchUpInside];
-        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchUpOutside];
-        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchDragOutside];
-        // TODO - this means if dragging inside it's 'deselected' - is this expected/desired behaviour?
-        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchDragInside];
+//        [self addTarget:self action:@selector(tapDown) forControlEvents:UIControlEventTouchDown];
+//        [self addTarget:self action:@selector(tapUpInside) forControlEvents:UIControlEventTouchUpInside];
+//        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchUpOutside];
+//        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchDragOutside];
+//        // TODO - this means if dragging inside it's 'deselected' - is this expected/desired behaviour?
+//        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchDragInside];
         
         // TODO Finish this code to use the return sidebar gradient below and handle null for grey background.
         // TODO check handling of null?  Since I don't use this specificaly now, sets grey and puts image on top.
@@ -79,16 +84,36 @@ UILabel *answer;
     return self;
 }
 
--(void)tapDown {
-    NSLog(@"Tap down");
+-(void)expandAndMove {
+//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
+    
+    [topView bringSubviewToFront:self];
+    
+    CGRect frameInTopView = [self convertRect:self.frame toView:topView];
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    if (scale == 1) {
+        // Do nothing
+    }
+    else if (scale == 2) {
+        frameInTopView.origin.x = frameInTopView.origin.x/2;
+        frameInTopView.origin.y = frameInTopView.origin.y/2;
+        frameInTopView.size.width = frameInTopView.size.width/2;
+        frameInTopView.size.height = frameInTopView.size.height/2;
+    }
+    // TODO The above code isn't so expandable if Apple release a higher resolution screen.  Debug info below.
+    // NSLog(@"%@", NSStringFromCGRect(frameInTopView));
+    
+    CGRect tempCurrentFrame = self.frame;
+    tempCurrentFrame.origin.y = tempCurrentFrame.origin.y-frameInTopView.origin.y+82;
+    [self setFrame:tempCurrentFrame];
 }
 
 -(void)tapUpInside {
-    NSLog(@"Tap up inside");
+//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
 }
 
 -(void)tapUpOutside {
-    NSLog(@"Tap up outside");
+//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
 }
 
 -(UIImage *)getSideBarImage:(NSString *)category {
