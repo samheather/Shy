@@ -71,7 +71,7 @@
 		5F85BF011861B5C100C3504E /* PersonalInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInformationViewController.h; sourceTree = "<group>"; };
 		5F85BF021861B5C100C3504E /* PersonalInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationViewController.m; sourceTree = "<group>"; };
 		5F85BF031861B5C100C3504E /* PersonalInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInformationViewController.xib; sourceTree = "<group>"; };
-		5FBD1C531861AE8F0073B7E6 /* Shy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FBD1C531861AE8F0073B7E6 /* shy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBD1C561861AE8F0073B7E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FBD1C581861AE8F0073B7E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5FBD1C5A1861AE8F0073B7E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -172,7 +172,7 @@
 		5FBD1C541861AE8F0073B7E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FBD1C531861AE8F0073B7E6 /* Shy.app */,
+				5FBD1C531861AE8F0073B7E6 /* shy.app */,
 				5FBD1C741861AE8F0073B7E6 /* ShyTests.xctest */,
 			);
 			name = Products;
@@ -322,7 +322,7 @@
 			);
 			name = Shy;
 			productName = KeyboardBug;
-			productReference = 5FBD1C531861AE8F0073B7E6 /* Shy.app */;
+			productReference = 5FBD1C531861AE8F0073B7E6 /* shy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5FBD1C731861AE8F0073B7E6 /* ShyTests */ = {
@@ -564,10 +564,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KeyboardBug/Shy-Prefix.pch";
 				INFOPLIST_FILE = "KeyboardBug/Shy-Info.plist";
-				PRODUCT_NAME = Shy;
+				PRODUCT_NAME = shy;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -577,10 +578,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KeyboardBug/Shy-Prefix.pch";
 				INFOPLIST_FILE = "KeyboardBug/Shy-Info.plist";
-				PRODUCT_NAME = Shy;
+				PRODUCT_NAME = shy;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
