@@ -30,6 +30,8 @@
 		7EA4B6DF19B4C3B4005BB9BC /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6DE19B4C3B4005BB9BC /* Question.m */; };
 		7EA4B6E219B4D782005BB9BC /* Questions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4B6E119B4D782005BB9BC /* Questions.m */; };
 		7ECCB1B819BBB18C00E5B9B2 /* QuestionSticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECCB1B719BBB18C00E5B9B2 /* QuestionSticker.m */; };
+		7ED6B7A919BD9BD400A739C8 /* InitialSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6B7A819BD9BD400A739C8 /* InitialSetup.m */; };
+		7ED6B7AC19BD9C8F00A739C8 /* InternalCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6B7AB19BD9C8F00A739C8 /* InternalCategory.m */; };
 		7EFAC28E19B7A05000B2C78B /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFAC28D19B7A05000B2C78B /* UserInformation.m */; };
 		7EFAC29019B7ECAA00B2C78B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC28F19B7ECAA00B2C78B /* Default.png */; };
 		7EFAC29219B7ECBA00B2C78B /* panda-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EFAC29119B7ECBA00B2C78B /* panda-small.png */; };
@@ -98,6 +100,10 @@
 		7EA4B6E119B4D782005BB9BC /* Questions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Questions.m; sourceTree = "<group>"; };
 		7ECCB1B619BBB18C00E5B9B2 /* QuestionSticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSticker.h; sourceTree = "<group>"; };
 		7ECCB1B719BBB18C00E5B9B2 /* QuestionSticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSticker.m; sourceTree = "<group>"; };
+		7ED6B7A719BD9BD400A739C8 /* InitialSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSetup.h; sourceTree = "<group>"; };
+		7ED6B7A819BD9BD400A739C8 /* InitialSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSetup.m; sourceTree = "<group>"; };
+		7ED6B7AA19BD9C8F00A739C8 /* InternalCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternalCategory.h; sourceTree = "<group>"; };
+		7ED6B7AB19BD9C8F00A739C8 /* InternalCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternalCategory.m; sourceTree = "<group>"; };
 		7EFAC28C19B7A05000B2C78B /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		7EFAC28D19B7A05000B2C78B /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		7EFAC28F19B7ECAA00B2C78B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Splash/Default.png; sourceTree = "<group>"; };
@@ -203,6 +209,10 @@
 				7EA4B6E119B4D782005BB9BC /* Questions.m */,
 				7EFAC28C19B7A05000B2C78B /* UserInformation.h */,
 				7EFAC28D19B7A05000B2C78B /* UserInformation.m */,
+				7ED6B7A719BD9BD400A739C8 /* InitialSetup.h */,
+				7ED6B7A819BD9BD400A739C8 /* InitialSetup.m */,
+				7ED6B7AA19BD9C8F00A739C8 /* InternalCategory.h */,
+				7ED6B7AB19BD9C8F00A739C8 /* InternalCategory.m */,
 				5FBD1C6E1861AE8F0073B7E6 /* Images.xcassets */,
 				5FBD1C5D1861AE8F0073B7E6 /* Supporting Files */,
 			);
@@ -419,11 +429,13 @@
 				7EFAC28E19B7A05000B2C78B /* UserInformation.m in Sources */,
 				7ECCB1B819BBB18C00E5B9B2 /* QuestionSticker.m in Sources */,
 				7EA4B6E219B4D782005BB9BC /* Questions.m in Sources */,
+				7ED6B7A919BD9BD400A739C8 /* InitialSetup.m in Sources */,
 				7E11EB3B19BCBEC400CB7300 /* CategoryViewController.m in Sources */,
 				5FBD1C6D1861AE8F0073B7E6 /* MainViewController.m in Sources */,
 				7EA4B6DF19B4C3B4005BB9BC /* Question.m in Sources */,
 				5FBD1C671861AE8F0073B7E6 /* BUGAppDelegate.m in Sources */,
 				5F85BF041861B5C100C3504E /* PersonalInformationViewController.m in Sources */,
+				7ED6B7AC19BD9C8F00A739C8 /* InternalCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
