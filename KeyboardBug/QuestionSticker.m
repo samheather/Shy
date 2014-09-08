@@ -21,6 +21,8 @@ UILabel *questionTitle;
 UILabel *answer;
 UIView *topView;
 
+CGRect originalViewFrame;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -90,6 +92,7 @@ UIView *topView;
 }
 
 -(void)expandAndGreyThis:(UIView *)view1 andThis:(UIView *)view2 {
+    originalViewFrame = self.frame;
     CGRect currentFrame = self.frame;
     CGRect superviewFrame = self.superview.frame;
     currentFrame.origin.y = 110;
@@ -110,6 +113,24 @@ UIView *topView;
                      }
                      completion:^(BOOL finished){
                          NSLog(@"Done!");
+                     }];
+}
+
+-(void)contractAndUnGreyThis:(UIView *)view1 andThis:(UIView *)view2 {
+    CGRect sideBarFrame = sideBar.frame;
+    sideBarFrame.size.height = originalViewFrame.size.height;
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [self setFrame:originalViewFrame];
+                         [sideBar setFrame:sideBarFrame];
+                         [view1.layer setOpacity:0.0];
+                         [view2.layer setOpacity:0.0];
+                     }
+                     completion:^(BOOL finished){
+                         [self removeFromSuperview];
                      }];
 }
 

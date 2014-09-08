@@ -82,6 +82,7 @@ NSTimer *checkLoading;
     }
     
     [self.navigationController setNavigationBarHidden:TRUE animated:FALSE];
+    self.navigationItem.title = @"Back";
     
     [self showLoadingView];
 }

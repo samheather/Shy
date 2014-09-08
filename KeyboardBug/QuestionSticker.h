@@ -16,6 +16,7 @@
 -(void)tapUpInside;
 -(void)tapUpOutside;
 -(void)expandAndGreyThis:(UIView *)view1 andThis:(UIView *)view2;
+-(void)contractAndUnGreyThis:(UIView *)view1 andThis:(UIView *)view2;
 -(CGRect)getFrameInUIView;
 -(UIImage *)getSideBarImage:(NSString *)category;
 -(Question *)getQuestion;

@@ -17,7 +17,7 @@
                bundle:(NSBundle *)nibBundleOrNil
         withQuestions:(Questions *)inputQuestions
              category:(NSString *)inputCategory;
--(void)greyOutBackground;
+-(void)setupGreyOutBackground;
 -(void)createCards;
 
 @end

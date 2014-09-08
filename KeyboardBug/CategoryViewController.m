@@ -23,6 +23,8 @@ Questions *questions;
 UIButton *greyOutTop;
 UIButton *greyOutMain;
 NSString *category;
+QuestionSticker *originalSticker;
+QuestionSticker *expandedSticker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
@@ -48,6 +50,7 @@ NSString *category;
     [UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1];
     // TODO can remove below line?
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.translucent = FALSE;
     
     [self.navigationController setTitle:@"Back"];
     [self setTitle:category];
@@ -60,7 +63,7 @@ NSString *category;
 //    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
     [self createCards];
     
-    [self greyOutBackground];
+    [self setupGreyOutBackground];
 }
 
 - (void)createCards {
@@ -80,30 +83,26 @@ NSString *category;
 }
 
 -(void)tapDown:(id)selector {
-    Question *abc = [[Question alloc] initWithUid:99 question:@"QQ" answer:@"AA" internalKeywords:@"" externalKeywords:@"" targets:@"" ageRange:@"14-18" numberOfVotes:799];
-    [questions addQuestion:abc];
-    
     QuestionSticker *temp = selector;
     [temp tapDown];
 }
 
 -(void)tapUpInside:(id)selector {
-    QuestionSticker *temp = selector;
-    [temp setBackgroundColor:[UIColor blueColor]];
+    originalSticker = selector;
     
-    Question *questionToUse = [temp getQuestion];
-    QuestionSticker *expanded = [[QuestionSticker alloc] initWithQuestion:questionToUse withIndex:-1];
-    CGRect frameInUIView = [temp getFrameInUIView];
-    [expanded setFrame:frameInUIView];
-    [self.view addSubview:expanded];
-    [self.view bringSubviewToFront:expanded];
-    [temp setHidden:TRUE];
+    Question *questionToUse = [originalSticker getQuestion];
+    expandedSticker = [[QuestionSticker alloc] initWithQuestion:questionToUse withIndex:-1];
+    CGRect frameInUIView = [originalSticker getFrameInUIView];
+    [expandedSticker setFrame:frameInUIView];
+    [self.view addSubview:expandedSticker];
+    [self.view bringSubviewToFront:expandedSticker];
+    [originalSticker setHidden:TRUE];
     
-    [expanded expandAndGreyThis:greyOutTop andThis:greyOutMain];
+    [expandedSticker expandAndGreyThis:greyOutTop andThis:greyOutMain];
     
-    [self.view bringSubviewToFront:expanded];
+    [self.view bringSubviewToFront:expandedSticker];
     
-    [temp tapUpInside];
+    [originalSticker tapUpInside];
 }
 
 -(void)tapUpOutside:(id)selector {
@@ -111,7 +110,7 @@ NSString *category;
     [temp tapUpOutside];
 }
 
--(void)greyOutBackground {
+-(void)setupGreyOutBackground {
     // Grey out background
     // TODO change 40 below to the dynamic height of the top bar
     greyOutTop = [[UIButton alloc] initWithFrame:CGRectMake(0,0,
@@ -128,31 +127,13 @@ NSString *category;
     [greyOutMain.layer setOpacity:0.0];
     [greyOutMain addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:greyOutMain];
-    
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         [greyOutTop.layer setOpacity:0.85];
-                         [greyOutMain.layer setOpacity:0.85];
-                     }
-                     completion:^(BOOL finished){
-                         [self closeExpandedCard];
-                         NSLog(@"Done!");
-                     }];
 }
 
 -(void)closeExpandedCard {
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         [greyOutTop.layer setOpacity:0.0];
-                         [greyOutMain.layer setOpacity:0.0];
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
+    [expandedSticker contractAndUnGreyThis:greyOutTop andThis:greyOutMain];
+
+    [originalSticker setHidden:FALSE];
+    originalSticker = nil;
 }
 
 - (void)didReceiveMemoryWarning
