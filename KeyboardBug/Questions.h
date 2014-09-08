@@ -18,5 +18,6 @@
 -(Question *)getQuestionWithIndex:(int)index;
 -(int)numberOfQuestions;
 -(void)addQuestion:(Question *)newQuestion;
+-(BOOL)isLiveData;
 
 @end

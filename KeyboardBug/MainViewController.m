@@ -21,7 +21,7 @@
 UIButton *pandaView;
 InitialSetup *initialSetup;
 Questions *questions;
-UIView *loadingView;
+NSTimer *checkLoading;
 
 - (void)viewDidLoad
 {
@@ -137,24 +137,27 @@ UIView *loadingView;
 }
 
 -(void)showLoadingView {
-    int viewWidth = 150;
-    int loadingViewBorder = 50;
+    NSLog(@"Showing loading view");
     [self.view setUserInteractionEnabled:FALSE];
-    loadingView = [[UIView alloc] initWithFrame:CGRectMake(loadingViewBorder,
-                                                           200,
-                                                           self.view.frame.size.width-(2*loadingViewBorder),
-                                                           viewWidth)];
-    [loadingView setBackgroundColor:[UIColor blackColor]];
+    [loadingView setHidden:FALSE];
     [loadingView.layer setOpacity:0.7];
     [loadingView.layer setCornerRadius:4.0];
-    
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, viewWidth, 20)];
-    [title setText:@"Download Answers"];
-    [loadingView addSubview:title];
-    
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:<#(CGRect)#>]
-    
-    [self.view addSubview:loadingView];
+    [checkLoading invalidate];
+    checkLoading = nil;
+    checkLoading = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(checkIfDownloaded) userInfo:nil repeats:YES];
+}
+
+-(void)checkIfDownloaded {
+    if ([questions isLiveData]) {
+        [self hideLoadingView];
+        [checkLoading invalidate];
+        checkLoading = nil;
+    }
+}
+
+-(void)hideLoadingView {
+    [self.view setUserInteractionEnabled:TRUE];
+    [loadingView setHidden:TRUE];
 }
 
 - (IBAction)showGetPersonalInfoView:(id)sender
