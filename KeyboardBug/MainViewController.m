@@ -34,7 +34,12 @@ InitialSetup *initialSetup;
     //    [self.navigationController.view addSubview:pandaView];
     
     [categoriesScrollView.layer setCornerRadius:3.0];
+    [categoriesImageView.layer setMasksToBounds:TRUE];
     [categoriesScrollView setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]]; /*#f3f3f3*/
+    
+//    [searchBar setBarTintColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]];
+    
+    [searchBar setSearchBarStyle:UISearchBarStyleMinimal];
     
     initialSetup = [[InitialSetup alloc] init];
     for (int i = 0; i<[[initialSetup categories] count]; i++) {
@@ -42,7 +47,7 @@ InitialSetup *initialSetup;
         InternalCategory *thisCategory = [[initialSetup categories] objectAtIndex:i];
         UIButton *friends = [[UIButton alloc] initWithFrame:CGRectMake(-1,
                                                                        44+(i*44),
-                                                                       categoriesScrollView.frame.size.width+1,
+                                                                       categoriesScrollView.frame.size.width+2,
                                                                        44)];
         [friends setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]];
         [friends setTitle:[thisCategory categoryName] forState:UIControlStateNormal];

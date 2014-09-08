@@ -8,6 +8,7 @@
 @interface BUGViewController : UIViewController {
     IBOutlet UIImageView *categoriesImageView;
     IBOutlet UIScrollView *categoriesScrollView;
+    IBOutlet UISearchBar *searchBar;
 }
 
 @end

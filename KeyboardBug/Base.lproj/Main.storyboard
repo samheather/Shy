@@ -24,11 +24,21 @@
                                 <rect key="frame" x="10" y="112" width="300" height="446"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4op-zF-ySR">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" placeholder="What are you shy about?" translatesAutoresizingMaskIntoConstraints="NO" id="4op-zF-ySR">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNX-qW-gDv">
+                                        <rect key="frame" x="262" y="6" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="settings.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showGetPersonalInfoView:" destination="x5A-6p-PRh" eventType="touchUpInside" id="9UU-gs-ECk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -38,6 +48,7 @@
                     <connections>
                         <outlet property="categoriesImageView" destination="09x-Ph-jRK" id="nRV-US-K65"/>
                         <outlet property="categoriesScrollView" destination="9K6-ao-ARD" id="cO3-c7-H5C"/>
+                        <outlet property="searchBar" destination="4op-zF-ySR" id="Qwd-ea-EeT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -65,6 +76,7 @@
     </scenes>
     <resources>
         <image name="categories.png" width="706" height="438"/>
+        <image name="settings.png" width="92" height="92"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
