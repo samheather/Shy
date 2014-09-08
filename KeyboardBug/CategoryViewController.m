@@ -73,18 +73,28 @@ NSString *category;
         [qsv addTarget:self action:@selector(tapUpOutside:) forControlEvents:UIControlEventTouchDragInside];
         
         [cardScrollView addSubview:qsv];
+        qsv = nil;
     }
 }
 
 -(void)tapDown:(id)selector {
+    Question *abc = [[Question alloc] initWithUid:99 question:@"QQ" answer:@"AA" internalKeywords:@"" externalKeywords:@"" targets:@"" ageRange:@"14-18" numberOfVotes:799];
+    [questions addQuestion:abc];
+    
     QuestionSticker *temp = selector;
     [temp tapDown];
 }
 
 -(void)tapUpInside:(id)selector {
     QuestionSticker *temp = selector;
+    [temp setBackgroundColor:[UIColor blueColor]];
     
-    QuestionSticker *expanded = [[QuestionSticker alloc] initWithQuestion:[temp getQuestion] withIndex:-1];
+    
+    Question *questionToUse = [temp getQuestion];
+//    NSLog(@"%d", [[temp getQuestion] uid]);
+//    NSLog(@"");
+
+    QuestionSticker *expanded = [[QuestionSticker alloc] initWithQuestion:questionToUse withIndex:-1];
     CGRect frameInUIView = [temp getFrameInUIView];
     [expanded setFrame:frameInUIView];
     [expanded setBackgroundColor:[UIColor redColor]];

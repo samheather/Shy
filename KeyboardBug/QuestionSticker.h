@@ -20,4 +20,6 @@
 -(UIImage *)getSideBarImage:(NSString *)category;
 -(Question *)getQuestion;
 
+@property(nonatomic, retain)Question *question;
+
 @end

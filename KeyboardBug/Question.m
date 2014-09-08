@@ -12,6 +12,9 @@
 
 @synthesize uid, question, answer, internalKeywords, externalKeywords, targets, ages, votes, splitInternalKeywords, splitExternalKeywords, splitTargets, minAge, maxAge;
 
+NSString *aa;
+NSString *qq;
+
 - (id)initWithUid:(int)inputUid
          question:(NSString *)inputQuestion
            answer:(NSString *)inputAnswer
@@ -32,6 +35,9 @@
         self.ages = inputAges;
         self.votes = inputVotes;
         
+        qq = inputQuestion;
+        aa = inputAnswer;
+        
         splitInternalKeywords = [NSMutableArray arrayWithArray:[internalKeywords componentsSeparatedByString:@","]];
         splitExternalKeywords = [NSMutableArray arrayWithArray:[externalKeywords componentsSeparatedByString:@","]];
         splitTargets = [NSMutableArray arrayWithArray:[targets componentsSeparatedByString:@","]];
@@ -42,5 +48,29 @@
     }
     return self;
 }
+
+-(id) copyWithZone:(NSZone *) zone
+{
+    Question *copied = [[Question alloc] init];
+    copied.uid = uid;
+    copied.question = [question copy];
+    copied.answer = [answer copy];
+    copied.internalKeywords = [internalKeywords copy];
+    copied.externalKeywords = [externalKeywords copy];
+    copied.targets = [targets copy];
+    copied.ages = [ages copy];
+    copied.votes = votes;
+    return copied;
+}
+
+//-(NSString *)ga {
+//    return aa;
+//}
+//
+//-(NSString *)gq {
+//    return qq;
+//}
+
+
 
 @end

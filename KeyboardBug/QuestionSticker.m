@@ -12,13 +12,15 @@
 
 @implementation QuestionSticker
 
+@synthesize question;
+
 int initialHeight = 150;
 CGRect originalStickerRect;
 UIImageView *sideBar;
 UILabel *questionTitle;
 UILabel *answer;
 UIView *topView;
-Question *question;
+
 //BUGViewController *topViewController;
 
 - (id)initWithFrame:(CGRect)frame
@@ -81,7 +83,7 @@ Question *question;
         
         [self.layer setCornerRadius:4];
         self.layer.masksToBounds = YES;
-
+        
     }
     return self;
 }

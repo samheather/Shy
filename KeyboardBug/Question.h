@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Question : NSObject
+@interface Question : NSObject <NSCopying>
 
 @property (nonatomic) int uid;
 @property (nonatomic, strong) NSString *question;
@@ -33,5 +33,10 @@
           targets:(NSString *)inputTargets
          ageRange:(NSString *)inputAges
     numberOfVotes:(int)inputVotes;
+
+-(id) copyWithZone:(NSZone *) zone;
+
+//-(NSString *)ga;
+//-(NSString *)gq;
 
 @end

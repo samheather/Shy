@@ -47,7 +47,6 @@ NSTimer *checkLoading;
     
     initialSetup = [[InitialSetup alloc] init];
     for (int i = 0; i<[[initialSetup categories] count]; i++) {
-        NSLog(@"Adding a button");
         InternalCategory *thisCategory = [[initialSetup categories] objectAtIndex:i];
         UIButton *thisButton = [[UIButton alloc] initWithFrame:CGRectMake(0,
                                                                 44+(i*44),
