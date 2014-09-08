@@ -45,6 +45,8 @@ NSString *category;
     // TODO can remove below line?
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
+    [self.navigationController setTitle:@"Back"];
+    [self setTitle:category];
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     //    [searchBar setText:@"What are you shy about?"];

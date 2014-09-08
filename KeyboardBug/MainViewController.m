@@ -26,6 +26,9 @@ InitialSetup *initialSetup;
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1]]; /*#002650*/
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    [self.navigationController.navigationBar
+//     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     pandaView = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-31,0,32,44)];
     [pandaView setImage:[UIImage imageNamed:@"panda-small"] forState:UIControlStateNormal];
@@ -37,26 +40,22 @@ InitialSetup *initialSetup;
     [categoriesImageView.layer setMasksToBounds:TRUE];
     [categoriesScrollView setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]]; /*#f3f3f3*/
     
-//    [searchBar setBarTintColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]];
-    
     [searchBar setSearchBarStyle:UISearchBarStyleMinimal];
     
     initialSetup = [[InitialSetup alloc] init];
     for (int i = 0; i<[[initialSetup categories] count]; i++) {
         NSLog(@"Adding a button");
         InternalCategory *thisCategory = [[initialSetup categories] objectAtIndex:i];
-        UIButton *friends = [[UIButton alloc] initWithFrame:CGRectMake(0,
-                                                                       44+(i*44),
-                                                                       categoriesScrollView.frame.size.width,
-                                                                       44)];
-        [friends setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]];
-        [friends setTitle:[thisCategory categoryName] forState:UIControlStateNormal];
-//        [friends.layer setBorderWidth:0.4];
-//        [friends.layer setBorderColor:[UIColor colorWithRed:0.592 green:0.592 blue:0.592 alpha:1].CGColor];
-        [[friends titleLabel] setFont:[UIFont fontWithName:@"Helvetica" size:18]];
-        [friends setTitleColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1] forState:UIControlStateNormal]; // #4a4a4a
-        friends.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        friends.contentEdgeInsets = UIEdgeInsetsMake(0, 14, 0, 0);
+        UIButton *thisButton = [[UIButton alloc] initWithFrame:CGRectMake(0,
+                                                                44+(i*44),
+                                                                categoriesScrollView.frame.size.width,
+                                                                44)];
+        [thisButton setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]];
+        [thisButton setTitle:[thisCategory categoryName] forState:UIControlStateNormal];
+        [[thisButton titleLabel] setFont:[UIFont fontWithName:@"Helvetica" size:18]];
+        [thisButton setTitleColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1] forState:UIControlStateNormal]; // #4a4a4a
+        thisButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        thisButton.contentEdgeInsets = UIEdgeInsetsMake(0, 14, 0, 0);
         // Sqaure
         int squareSize = 44;
         UIImageView *square = [[UIImageView alloc] initWithFrame:CGRectMake(categoriesScrollView.frame.size.width-squareSize,
@@ -70,14 +69,14 @@ InitialSetup *initialSetup;
         // Dividing line
         UIView *dividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                                         0,
-                                                                        friends.frame.size.width-44,
+                                                                        thisButton.frame.size.width-44,
                                                                         0.5)];
         [dividingLine setBackgroundColor:[UIColor grayColor]];
-        [friends addSubview:dividingLine];
+        [thisButton addSubview:dividingLine];
         
-        [friends addSubview:square];
-        [friends addTarget:self action:@selector(openCategory:) forControlEvents:UIControlEventTouchUpInside];
-        [categoriesScrollView addSubview:friends];
+        [thisButton addSubview:square];
+        [thisButton addTarget:self action:@selector(categoryPushed:) forControlEvents:UIControlEventTouchUpInside];
+        [categoriesScrollView addSubview:thisButton];
     }
     
     [self.navigationController setNavigationBarHidden:TRUE animated:FALSE];
@@ -118,10 +117,14 @@ InitialSetup *initialSetup;
                      }];
 }
 
+-(void)categoryPushed:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    [self openCategory:button.currentTitle];
+}
 
 // TODO below hard coded category to Sex.
 -(void)openCategory:(NSString *)category {
-    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil category:@"Sex"];
+    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil category:category];
     [self.navigationController pushViewController:categoryViewController animated:YES];
 }
 
