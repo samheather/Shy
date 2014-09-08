@@ -16,6 +16,8 @@
 - (id)init {
     self = [super init];
     if (self) {
+        categories = [[NSMutableArray alloc] init];
+        
         [categories
          addObject:[[InternalCategory alloc]
                     initWithName:@"Friends"
