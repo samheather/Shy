@@ -83,9 +83,16 @@ NSString *category;
 
 -(void)tapUpInside:(id)selector {
     QuestionSticker *temp = selector;
-    //    QuestionSticker *expanded = [[QuestionSticker alloc] initWithQuestion:<#(Question *)#> withIndex:<#(int)#>]
+    
+    QuestionSticker *expanded = [[QuestionSticker alloc] initWithQuestion:[temp getQuestion] withIndex:-1];
+    CGRect frameInUIView = [temp getFrameInUIView];
+    [expanded setFrame:frameInUIView];
+    [expanded setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:expanded];
+    [temp setHidden:TRUE];
+    
     [self greyOutBackground];
-    [temp moveUp];
+    [temp tapUpInside];
 }
 
 -(void)tapUpOutside:(id)selector {

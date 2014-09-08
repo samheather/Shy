@@ -18,6 +18,7 @@ UIImageView *sideBar;
 UILabel *questionTitle;
 UILabel *answer;
 UIView *topView;
+Question *question;
 //BUGViewController *topViewController;
 
 - (id)initWithFrame:(CGRect)frame
@@ -34,6 +35,7 @@ UIView *topView;
 {
     self = [super initWithFrame:CGRectMake(10, 50+((10+initialHeight)*index), 300, initialHeight)];
     if (self) {
+        question = inputQuestion;
         topView = self.superview;
         
         [self setBackgroundColor:[UIColor whiteColor]];
@@ -85,49 +87,32 @@ UIView *topView;
 }
 
 -(void)tapDown {
-    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
+//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
 }
 
 -(void)tapUpInside {
-    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
 }
 
 -(void)tapUpOutside {
-    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
 }
 
--(void)moveUp {
-//    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.98, 0.98);
-    
-    [topView bringSubviewToFront:self];
-    
-    CGRect frameInTopView = [self convertRect:self.frame toView:topView];
-    CGFloat scale = [[UIScreen mainScreen] scale];
-    if (scale == 1) {
-        // Do nothing
-    }
-    else if (scale == 2) {
-        frameInTopView.origin.x = frameInTopView.origin.x/2;
-        frameInTopView.origin.y = frameInTopView.origin.y/2;
-        frameInTopView.size.width = frameInTopView.size.width/2;
-        frameInTopView.size.height = frameInTopView.size.height/2;
-    }
-    // TODO The above code isn't so expandable if Apple release a higher resolution screen.  Debug info below.
-    // NSLog(@"%@", NSStringFromCGRect(frameInTopView));
-    
-    CGRect tempCurrentFrame = self.frame;
-    tempCurrentFrame.origin.y = tempCurrentFrame.origin.y-frameInTopView.origin.y+82;
-    
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                            [self setFrame:tempCurrentFrame];
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
+-(CGRect)getFrameInUIView {
+    CGRect frameInTopView = [self.superview convertRect:self.frame toView:topView];
+    // Below code may be needed if scaling for retina doesn't work (i.e. CGRect is 2X)
+//    CGFloat scale = [[UIScreen mainScreen] scale];
+//    if (scale == 1) {
+//        // Do nothing
+//    }
+//    else if (scale == 2) {
+//        frameInTopView.origin.x = frameInTopView.origin.x/2;
+//        frameInTopView.origin.y = frameInTopView.origin.y/2;
+//        frameInTopView.size.width = frameInTopView.size.width/2;
+//        frameInTopView.size.height = frameInTopView.size.height/2;
+//    }
 
+    return frameInTopView;
 }
 
 -(UIImage *)getSideBarImage:(NSString *)category {
@@ -159,6 +144,10 @@ UIView *topView;
         return [UIImage imageNamed:@"yourbody-blue"];
     }
     return NULL;
+}
+
+-(Question *)getQuestion {
+    return question;
 }
 
 

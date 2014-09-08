@@ -15,6 +15,9 @@
 -(void)tapDown;
 -(void)tapUpInside;
 -(void)tapUpOutside;
--(void)moveUp;
+
+-(CGRect)getFrameInUIView;
+-(UIImage *)getSideBarImage:(NSString *)category;
+-(Question *)getQuestion;
 
 @end
