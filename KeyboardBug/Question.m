@@ -63,14 +63,4 @@ NSString *qq;
     return copied;
 }
 
-//-(NSString *)ga {
-//    return aa;
-//}
-//
-//-(NSString *)gq {
-//    return qq;
-//}
-
-
-
 @end

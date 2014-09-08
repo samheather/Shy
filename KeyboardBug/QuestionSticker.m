@@ -21,8 +21,6 @@ UILabel *questionTitle;
 UILabel *answer;
 UIView *topView;
 
-//BUGViewController *topViewController;
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -53,15 +51,6 @@ UIView *topView;
         [self.layer setShadowOffset:CGSizeMake(0, 0)];
         [self.layer setShadowOpacity:0.8];
         [self.layer setShadowRadius:1];
-        
-        // Add in corner radius, shadows, questions and answers.
-        
-//        [self addTarget:self action:@selector(tapDown) forControlEvents:UIControlEventTouchDown];
-//        [self addTarget:self action:@selector(tapUpInside) forControlEvents:UIControlEventTouchUpInside];
-//        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchUpOutside];
-//        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchDragOutside];
-//        // TODO - this means if dragging inside it's 'deselected' - is this expected/desired behaviour?
-//        [self addTarget:self action:@selector(tapUpOutside) forControlEvents:UIControlEventTouchDragInside];
         
         // TODO Finish this code to use the return sidebar gradient below and handle null for grey background.
         // TODO check handling of null?  Since I don't use this specificaly now, sets grey and puts image on top.

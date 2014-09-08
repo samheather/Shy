@@ -89,16 +89,12 @@ NSString *category;
     QuestionSticker *temp = selector;
     [temp setBackgroundColor:[UIColor blueColor]];
     
-    
     Question *questionToUse = [temp getQuestion];
-//    NSLog(@"%d", [[temp getQuestion] uid]);
-//    NSLog(@"");
-
     QuestionSticker *expanded = [[QuestionSticker alloc] initWithQuestion:questionToUse withIndex:-1];
     CGRect frameInUIView = [temp getFrameInUIView];
     [expanded setFrame:frameInUIView];
-    [expanded setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:expanded];
+    [self.view bringSubviewToFront:expanded];
     [temp setHidden:TRUE];
     
     [self greyOutBackground];

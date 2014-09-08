@@ -36,7 +36,4 @@
 
 -(id) copyWithZone:(NSZone *) zone;
 
-//-(NSString *)ga;
-//-(NSString *)gq;
-
 @end
