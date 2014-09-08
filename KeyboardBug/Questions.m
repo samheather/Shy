@@ -18,11 +18,11 @@
 - (id)init {
     self = [super init];
     questions = [[NSMutableArray alloc] init];
-    liveData = FALSE;
     return self;
 }
 
 -(void)loadQuestions {
+    liveData = FALSE;
     [self downloadItems];
 }
 
@@ -36,6 +36,15 @@
     }
     else {
         return NULL;
+    }
+}
+
+-(BOOL)isLiveData {
+    if ([questions count] > 0 && liveData == TRUE) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
     }
 }
 
@@ -103,8 +112,6 @@
     [self processItems:_locations];
     
     liveData = TRUE;
-    
-    NSLog(@"Data is live");
 }
 
 -(int)numberOfQuestions {

@@ -18,17 +18,21 @@
 @implementation CategoryViewController
 
 int heightOfCard = 150;
-Questions *qs;
+Questions *questions;
 //QuestionStickerView *expandedView;
 UIButton *greyOutTop;
 UIButton *greyOutMain;
 NSString *category;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil category:(NSString *)inputCategory
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+        withQuestions:(Questions *)inputQuestions
+             category:(NSString *)inputCategory
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         category = inputCategory;
+        questions = inputQuestions;
     }
     return self;
 }
@@ -49,32 +53,17 @@ NSString *category;
     [self setTitle:category];
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
-    //    [searchBar setText:@"What are you shy about?"];
-    //    [searchBar setPrompt:@"What are you shy about?"];
     [searchBar setPlaceholder:@"What are you shy about?"];
     [cardScrollView addSubview:searchBar];
     [cardScrollView setContentSize:(CGSizeMake(320, 1000))];
     
-    qs = [[Questions alloc] init];
-    [qs loadQuestions];
-    
-    [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
+    [self createCards];
 }
 
-- (void)testDataPull {
-    NSLog(@"Doing card creation, will fail if no data was pulled");
-    
-    //    Question *noInternetQuestion1 = [[Question alloc] initWithUid:0 question:@"Question1" answer:@"Answer1" internalKeywords:@"internal,keywords" externalKeywords:@"Sex,Health" targets:@"male,female" ageRange:@"14-18" numberOfVotes:4];
-    //    [qs addQuestion:noInternetQuestion1];
-    //    Question *noInternetQuestion2 = [[Question alloc] initWithUid:1 question:@"Question2" answer:@"Answer2" internalKeywords:@"internal,keywords" externalKeywords:@"Health" targets:@"female" ageRange:@"16-17" numberOfVotes:6];
-    //    [qs addQuestion:noInternetQuestion2];
-    
-    
-    NSLog(@"%d", [qs numberOfQuestions]);
-    
-    
-    for (int i = 0; i<[qs numberOfQuestions]; i++) {
-        QuestionSticker *qsv = [[QuestionSticker alloc] initWithQuestion:[qs getQuestionWithIndex:i] withIndex:i];
+- (void)createCards {
+    for (int i = 0; i<[questions numberOfQuestions]; i++) {
+        QuestionSticker *qsv = [[QuestionSticker alloc] initWithQuestion:[questions getQuestionWithIndex:i] withIndex:i];
         
         [qsv addTarget:self action:@selector(tapDown:) forControlEvents:UIControlEventTouchDown];
         [qsv addTarget:self action:@selector(tapUpInside:) forControlEvents:UIControlEventTouchUpInside];

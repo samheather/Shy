@@ -10,8 +10,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-//    [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
-//    sleep(2);
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    sleep(2);
     
     // Override point for customization after application launch.
     return YES;

@@ -20,6 +20,8 @@
 
 UIButton *pandaView;
 InitialSetup *initialSetup;
+Questions *questions;
+UIView *loadingView;
 
 - (void)viewDidLoad
 {
@@ -27,8 +29,9 @@ InitialSetup *initialSetup;
     [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1]]; /*#002650*/
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    [self.navigationController.navigationBar
-//     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
+    questions = [[Questions alloc] init];
+    [questions loadQuestions];
     
     pandaView = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-31,0,32,44)];
     [pandaView setImage:[UIImage imageNamed:@"panda-small"] forState:UIControlStateNormal];
@@ -80,6 +83,8 @@ InitialSetup *initialSetup;
     }
     
     [self.navigationController setNavigationBarHidden:TRUE animated:FALSE];
+    
+    [self showLoadingView];
 }
 
 -(void)hidePanda {
@@ -124,8 +129,32 @@ InitialSetup *initialSetup;
 
 // TODO below hard coded category to Sex.
 -(void)openCategory:(NSString *)category {
-    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil category:category];
+    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController"
+                                                                                              bundle:nil
+                                                                                       withQuestions:questions
+                                                                                            category:category];
     [self.navigationController pushViewController:categoryViewController animated:YES];
+}
+
+-(void)showLoadingView {
+    int viewWidth = 150;
+    int loadingViewBorder = 50;
+    [self.view setUserInteractionEnabled:FALSE];
+    loadingView = [[UIView alloc] initWithFrame:CGRectMake(loadingViewBorder,
+                                                           200,
+                                                           self.view.frame.size.width-(2*loadingViewBorder),
+                                                           viewWidth)];
+    [loadingView setBackgroundColor:[UIColor blackColor]];
+    [loadingView.layer setOpacity:0.7];
+    [loadingView.layer setCornerRadius:4.0];
+    
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, viewWidth, 20)];
+    [title setText:@"Download Answers"];
+    [loadingView addSubview:title];
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:<#(CGRect)#>]
+    
+    [self.view addSubview:loadingView];
 }
 
 - (IBAction)showGetPersonalInfoView:(id)sender

@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Questions.h"
 
 @interface CategoryViewController : UIViewController {
     IBOutlet UIScrollView *cardScrollView;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil category:(NSString *)inputCategory;
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+        withQuestions:(Questions *)inputQuestions
+             category:(NSString *)inputCategory;
 -(void)greyOutBackground;
+-(void)createCards;
 
 @end
