@@ -89,6 +89,30 @@ UIView *topView;
 //    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
 }
 
+-(void)expandAndGreyThis:(UIView *)view1 andThis:(UIView *)view2 {
+    CGRect currentFrame = self.frame;
+    CGRect superviewFrame = self.superview.frame;
+    currentFrame.origin.y = 110;
+    currentFrame.size.height = superviewFrame.size.height-120;
+    
+    CGRect sideBarFrame = sideBar.frame;
+    sideBarFrame.size.height = currentFrame.size.height;
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [self setFrame:currentFrame];
+                         [sideBar setFrame:sideBarFrame];
+                         [view1.layer setOpacity:0.85];
+                         [view2.layer setOpacity:0.85];
+                         
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+}
+
 -(CGRect)getFrameInUIView {
     CGRect frameInTopView = [self.superview convertRect:self.frame toView:topView];
     // Below code may be needed if scaling for retina doesn't work (i.e. CGRect is 2X)

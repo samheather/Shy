@@ -59,6 +59,8 @@ NSString *category;
     
 //    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
     [self createCards];
+    
+    [self greyOutBackground];
 }
 
 - (void)createCards {
@@ -97,7 +99,10 @@ NSString *category;
     [self.view bringSubviewToFront:expanded];
     [temp setHidden:TRUE];
     
-    [self greyOutBackground];
+    [expanded expandAndGreyThis:greyOutTop andThis:greyOutMain];
+    
+    [self.view bringSubviewToFront:expanded];
+    
     [temp tapUpInside];
 }
 
@@ -132,6 +137,7 @@ NSString *category;
                          [greyOutMain.layer setOpacity:0.85];
                      }
                      completion:^(BOOL finished){
+                         [self closeExpandedCard];
                          NSLog(@"Done!");
                      }];
 }
