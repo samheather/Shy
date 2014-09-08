@@ -45,28 +45,35 @@ InitialSetup *initialSetup;
     for (int i = 0; i<[[initialSetup categories] count]; i++) {
         NSLog(@"Adding a button");
         InternalCategory *thisCategory = [[initialSetup categories] objectAtIndex:i];
-        UIButton *friends = [[UIButton alloc] initWithFrame:CGRectMake(-1,
+        UIButton *friends = [[UIButton alloc] initWithFrame:CGRectMake(0,
                                                                        44+(i*44),
-                                                                       categoriesScrollView.frame.size.width+2,
+                                                                       categoriesScrollView.frame.size.width,
                                                                        44)];
         [friends setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]];
         [friends setTitle:[thisCategory categoryName] forState:UIControlStateNormal];
-        [friends.layer setBorderWidth:0.4];
+//        [friends.layer setBorderWidth:0.4];
+//        [friends.layer setBorderColor:[UIColor colorWithRed:0.592 green:0.592 blue:0.592 alpha:1].CGColor];
         [[friends titleLabel] setFont:[UIFont fontWithName:@"Helvetica" size:18]];
         [friends setTitleColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1] forState:UIControlStateNormal]; // #4a4a4a
-        [friends.layer setBorderColor:[UIColor colorWithRed:0.592 green:0.592 blue:0.592 alpha:1].CGColor];
         friends.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         friends.contentEdgeInsets = UIEdgeInsetsMake(0, 14, 0, 0);
         // Sqaure
         int squareSize = 44;
-        // +1 for shadow offsetting the edge of scroll view.
-        UIImageView *square = [[UIImageView alloc] initWithFrame:CGRectMake(categoriesScrollView.frame.size.width-squareSize+1,
+        UIImageView *square = [[UIImageView alloc] initWithFrame:CGRectMake(categoriesScrollView.frame.size.width-squareSize,
                                                                             0,
                                                                             squareSize,
                                                                             squareSize)];
         [square setUserInteractionEnabled:FALSE];
         [square setBackgroundColor:[thisCategory categoryChevronColour]];
         [square setImage:[UIImage imageNamed:@"chevron"]];
+        
+        // Dividing line
+        UIView *dividingLine = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                        0,
+                                                                        friends.frame.size.width-44,
+                                                                        0.5)];
+        [dividingLine setBackgroundColor:[UIColor grayColor]];
+        [friends addSubview:dividingLine];
         
         [friends addSubview:square];
         [friends addTarget:self action:@selector(openCategory:) forControlEvents:UIControlEventTouchUpInside];
