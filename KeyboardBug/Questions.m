@@ -57,7 +57,7 @@
 - (void)downloadItems
 {
     // Download the json file
-    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://shy.heather.sh/get2.php"];
+    NSURL *jsonFileUrl = [NSURL URLWithString:@"http://shy.heather.sh/get.php"];
     
     // Create the request
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:jsonFileUrl];

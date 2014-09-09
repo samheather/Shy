@@ -14,12 +14,14 @@
 
 @synthesize question;
 
-int initialHeight = 150;
+int standardHeight = 150;
 CGRect originalStickerRect;
 UIImageView *sideBar;
 UILabel *questionTitle;
 UILabel *answer;
 UIView *topView;
+UIView *dividingLine1;
+UIView *dividingLine2;
 
 CGRect originalViewFrame;
 
@@ -35,7 +37,7 @@ CGRect originalViewFrame;
 
 - (id)initWithQuestion:(Question*)inputQuestion withIndex:(int)index
 {
-    self = [super initWithFrame:CGRectMake(10, 50+((10+initialHeight)*index), 300, initialHeight)];
+    self = [super initWithFrame:CGRectMake(10, 50+((10+standardHeight)*index), 300, standardHeight)];
     if (self) {
         question = inputQuestion;
         topView = self.superview;
@@ -61,15 +63,30 @@ CGRect originalViewFrame;
         [sideBar setImage:[self getSideBarImage:[[inputQuestion splitExternalKeywords] objectAtIndex:0]]];
         [self addSubview:sideBar];
         
-        questionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,10,self.frame.size.width-20,15)];
+        questionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,10,self.frame.size.width-20,30)];
         [questionTitle setText:[inputQuestion question]];
+        [questionTitle setFont:[UIFont fontWithName:@"Helvetica" size:26]];
+        [questionTitle setTextColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1]]; //#4a4a4a
         [self addSubview:questionTitle];
         
-        answer = [[UILabel alloc] initWithFrame:CGRectMake(20, 35,self.frame.size.width-20,initialHeight-35-10)];
+        // Dividing line
+        dividingLine1 = [[UIView alloc] initWithFrame:CGRectMake(20,
+                                                                 questionTitle.frame.size.height+questionTitle.frame.origin.y+5,
+                                                                 self.frame.size.width-30,
+                                                                 0.5)];
+        [dividingLine1 setBackgroundColor:[UIColor grayColor]];
+        [self addSubview:dividingLine1];
+        
+        dividingLine2 = [[UIView alloc] initWithFrame:CGRectMake(20,
+                                                                 questionTitle.frame.size.height+questionTitle.frame.origin.y+25,
+                                                                 self.frame.size.width-30,
+                                                                 0.5)];
+        [dividingLine2 setBackgroundColor:[UIColor grayColor]];
+        [self addSubview:dividingLine2];
+        
+        answer = [[UILabel alloc] initWithFrame:CGRectMake(20, 35,self.frame.size.width-20,standardHeight-35-10)];
         [answer setText:[inputQuestion answer]];
-        //        answer.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
         [answer setNumberOfLines:4];
-        //        answer.
         [self addSubview:answer];
         
         [self.layer setCornerRadius:4];
@@ -184,6 +201,10 @@ CGRect originalViewFrame;
 
 -(Question *)getQuestion {
     return question;
+}
+
+-(int)getStandardHeight {
+    return standardHeight;
 }
 
 

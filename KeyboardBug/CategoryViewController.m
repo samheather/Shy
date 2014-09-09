@@ -58,7 +58,7 @@ QuestionSticker *expandedSticker;
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     [searchBar setPlaceholder:@"What are you shy about?"];
     [cardScrollView addSubview:searchBar];
-    [cardScrollView setContentSize:(CGSizeMake(320, 1000))];
+    [cardScrollView setContentSize:(CGSizeMake(320, 2000))];
     
 //    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
     [self createCards];
