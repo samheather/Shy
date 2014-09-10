@@ -118,7 +118,7 @@ CGRect originalViewFrame;
     CGRect sideBarFrame = sideBar.frame;
     sideBarFrame.size.height = currentFrame.size.height;
     
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:3.3
                           delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
@@ -137,7 +137,7 @@ CGRect originalViewFrame;
     CGRect sideBarFrame = sideBar.frame;
     sideBarFrame.size.height = originalViewFrame.size.height;
     
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:3.3
                           delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{

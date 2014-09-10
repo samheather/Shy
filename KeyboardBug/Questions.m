@@ -39,6 +39,25 @@
     }
 }
 
+-(NSMutableArray *)getQuestionsFromCategory:(NSString *)category {
+    NSMutableArray *toReturn = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [questions count]; i++) {
+        
+        BOOL identicalStringFound = NO;
+        for (NSString *someString in [[self getQuestionWithIndex:i] splitExternalKeywords]) {
+            if ([someString isEqualToString:category]) {
+                identicalStringFound = YES;
+                break;
+            }
+        }
+        
+        if (identicalStringFound) {
+            [toReturn addObject:[self getQuestionWithIndex:i]];
+        }
+    }
+    return toReturn;
+}
+
 -(BOOL)isLiveData {
     if ([questions count] > 0 && liveData == TRUE) {
         return TRUE;

@@ -5,7 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BUGViewController : UIViewController {
+@interface BUGViewController : UIViewController <UISearchBarDelegate> {
     IBOutlet UIImageView *categoriesImageView;
     IBOutlet UIScrollView *categoriesScrollView;
     IBOutlet UISearchBar *searchBar;

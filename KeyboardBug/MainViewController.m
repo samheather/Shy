@@ -44,6 +44,7 @@ NSTimer *checkLoading;
     [categoriesScrollView setBackgroundColor:[UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]]; /*#f3f3f3*/
     
     [searchBar setSearchBarStyle:UISearchBarStyleMinimal];
+    searchBar.delegate = self;
     
     initialSetup = [[InitialSetup alloc] init];
     for (int i = 0; i<[[initialSetup categories] count]; i++) {
@@ -133,6 +134,17 @@ NSTimer *checkLoading;
                                                                                               bundle:nil
                                                                                        withQuestions:questions
                                                                                             category:category];
+    [self.navigationController pushViewController:categoryViewController animated:YES];
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
+    [searchBar resignFirstResponder];
+    
+    // TODO PROTOTYPE DEMONSTRATION OF SEARCH ONLY
+    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController"
+                                                                                              bundle:nil
+                                                                                       withQuestions:questions
+                                                                                            category:@"Rape"];
     [self.navigationController pushViewController:categoryViewController animated:YES];
 }
 

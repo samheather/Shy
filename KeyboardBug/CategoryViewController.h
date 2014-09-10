@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Questions.h"
 
-@interface CategoryViewController : UIViewController {
+@interface CategoryViewController : UIViewController <UISearchBarDelegate> {
     IBOutlet UIScrollView *cardScrollView;
 }
 

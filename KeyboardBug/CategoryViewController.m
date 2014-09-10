@@ -18,13 +18,16 @@
 @implementation CategoryViewController
 
 int heightOfCard = 150;
-Questions *questions;
+NSMutableArray *arrayOfQuestions;
 //QuestionStickerView *expandedView;
 UIButton *greyOutTop;
 UIButton *greyOutMain;
 NSString *category;
 QuestionSticker *originalSticker;
 QuestionSticker *expandedSticker;
+
+// TODO PROTOTYPE DEMONSTRATION OF SEARCH ONLY
+Questions *prototypeDemoQuestions;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
@@ -34,7 +37,8 @@ QuestionSticker *expandedSticker;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         category = inputCategory;
-        questions = inputQuestions;
+        arrayOfQuestions = [inputQuestions getQuestionsFromCategory:inputCategory];
+        prototypeDemoQuestions = inputQuestions;
     }
     return self;
 }
@@ -57,6 +61,7 @@ QuestionSticker *expandedSticker;
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     [searchBar setPlaceholder:@"What are you shy about?"];
+    searchBar.delegate = self;
     [cardScrollView addSubview:searchBar];
     [cardScrollView setContentSize:(CGSizeMake(320, 2000))];
     
@@ -67,8 +72,8 @@ QuestionSticker *expandedSticker;
 }
 
 - (void)createCards {
-    for (int i = 0; i<[questions numberOfQuestions]; i++) {
-        QuestionSticker *qsv = [[QuestionSticker alloc] initWithQuestion:[questions getQuestionWithIndex:i] withIndex:i];
+    for (int i = 0; i<[arrayOfQuestions count]; i++) {
+        QuestionSticker *qsv = [[QuestionSticker alloc] initWithQuestion:[arrayOfQuestions objectAtIndex:i] withIndex:i];
         
         [qsv addTarget:self action:@selector(tapDown:) forControlEvents:UIControlEventTouchDown];
         [qsv addTarget:self action:@selector(tapUpInside:) forControlEvents:UIControlEventTouchUpInside];
@@ -134,6 +139,17 @@ QuestionSticker *expandedSticker;
 
     [originalSticker setHidden:FALSE];
     originalSticker = nil;
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
+    [theSearchBar resignFirstResponder];
+    
+    // TODO PROTOTYPE DEMONSTRATION OF SEARCH ONLY
+    CategoryViewController *categoryViewController = [[CategoryViewController alloc] initWithNibName:@"CategoryViewController"
+                                                                                              bundle:nil
+                                                                                       withQuestions:prototypeDemoQuestions
+                                                                                            category:@"Rape"];
+    [self.navigationController pushViewController:categoryViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

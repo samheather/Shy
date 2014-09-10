@@ -16,6 +16,7 @@
 
 -(void)loadQuestions;
 -(Question *)getQuestionWithIndex:(int)index;
+-(NSMutableArray *)getQuestionsFromCategory:(NSString *)category;
 -(int)numberOfQuestions;
 -(void)addQuestion:(Question *)newQuestion;
 -(BOOL)isLiveData;
