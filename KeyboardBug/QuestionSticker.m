@@ -18,9 +18,10 @@ int standardHeight = 150;
 CGRect originalStickerRect;
 UIImageView *sideBar;
 UILabel *questionTitle;
-UILabel *answer;
+UITextView *answer;
 UIView *topView;
 UIView *dividingLine1;
+UILabel *keywords;
 UIView *dividingLine2;
 
 CGRect originalViewFrame;
@@ -63,9 +64,11 @@ CGRect originalViewFrame;
         [sideBar setImage:[self getSideBarImage:[[inputQuestion splitExternalKeywords] objectAtIndex:0]]];
         [self addSubview:sideBar];
         
-        questionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,10,self.frame.size.width-20,30)];
+        questionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,8,self.frame.size.width-20,48)];
         [questionTitle setText:[inputQuestion question]];
-        [questionTitle setFont:[UIFont fontWithName:@"Helvetica" size:26]];
+        [questionTitle setFont:[UIFont fontWithName:@"Helvetica" size:20]];
+//        [questionTitle setLineBreakMode:NSLineBreakByWordWrapping];
+        [questionTitle setNumberOfLines:0];
         [questionTitle setTextColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1]]; //#4a4a4a
         [self addSubview:questionTitle];
         
@@ -77,6 +80,14 @@ CGRect originalViewFrame;
         [dividingLine1 setBackgroundColor:[UIColor grayColor]];
         [self addSubview:dividingLine1];
         
+        keywords = [[UILabel alloc] initWithFrame:CGRectMake(20,
+                                                             dividingLine1.frame.origin.y + dividingLine1.frame.size.height,
+                                                             self.frame.size.width-30,
+                                                             20)];
+        [keywords setTextColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1]]; //#4a4a4a
+        [keywords setText:@"Hello, World"];
+        [self addSubview:keywords];
+        
         dividingLine2 = [[UIView alloc] initWithFrame:CGRectMake(20,
                                                                  questionTitle.frame.size.height+questionTitle.frame.origin.y+25,
                                                                  self.frame.size.width-30,
@@ -84,9 +95,11 @@ CGRect originalViewFrame;
         [dividingLine2 setBackgroundColor:[UIColor grayColor]];
         [self addSubview:dividingLine2];
         
-        answer = [[UILabel alloc] initWithFrame:CGRectMake(20, 35,self.frame.size.width-20,standardHeight-35-10)];
+        answer = [[UITextView alloc] initWithFrame:CGRectMake(20, 86,self.frame.size.width-20,standardHeight-86-10)];
         [answer setText:[inputQuestion answer]];
-        [answer setNumberOfLines:4];
+        [answer setUserInteractionEnabled:FALSE];
+        [answer setFont:[UIFont fontWithName:@"Helvetica" size:14]];
+        [answer setTextColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1]]; //#4a4a4a
         [self addSubview:answer];
         
         [self.layer setCornerRadius:4];
@@ -112,21 +125,27 @@ CGRect originalViewFrame;
     originalViewFrame = self.frame;
     CGRect currentFrame = self.frame;
     CGRect superviewFrame = self.superview.frame;
-    currentFrame.origin.y = 110;
-    currentFrame.size.height = superviewFrame.size.height-120;
+    currentFrame.origin.y = 70;
+    currentFrame.size.height = superviewFrame.size.height-80;
     
     CGRect sideBarFrame = sideBar.frame;
     sideBarFrame.size.height = currentFrame.size.height;
     
-    [UIView animateWithDuration:3.3
+    CGRect answerFrame = answer.frame;
+    answerFrame.size.height = currentFrame.size.height-answerFrame.origin.y-10;
+    
+    [UIView animateWithDuration:0.3
                           delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          [self setFrame:currentFrame];
                          [sideBar setFrame:sideBarFrame];
-                         [view1.layer setOpacity:0.85];
+                         [view1.layer setOpacity:0.0];
+                         
+                         // TODO Hack to stop grey top been turned grey
                          [view2.layer setOpacity:0.85];
                          
+                         [answer setFrame:answerFrame];
                      }
                      completion:^(BOOL finished){
                          NSLog(@"Done!");
@@ -137,7 +156,7 @@ CGRect originalViewFrame;
     CGRect sideBarFrame = sideBar.frame;
     sideBarFrame.size.height = originalViewFrame.size.height;
     
-    [UIView animateWithDuration:3.3
+    [UIView animateWithDuration:0.3
                           delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{

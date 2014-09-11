@@ -29,6 +29,8 @@ QuestionSticker *expandedSticker;
 // TODO PROTOTYPE DEMONSTRATION OF SEARCH ONLY
 Questions *prototypeDemoQuestions;
 
+UIButton *closeButton;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
         withQuestions:(Questions *)inputQuestions
@@ -63,12 +65,18 @@ Questions *prototypeDemoQuestions;
     [searchBar setPlaceholder:@"What are you shy about?"];
     searchBar.delegate = self;
     [cardScrollView addSubview:searchBar];
-    [cardScrollView setContentSize:(CGSizeMake(320, 2000))];
+    [cardScrollView setContentSize:(CGSizeMake(320, (160*[arrayOfQuestions count])+140))];
     
 //    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(testDataPull) userInfo:nil repeats:NO];
     [self createCards];
     
     [self setupGreyOutBackground];
+    
+    closeButton = [[UIButton alloc] initWithFrame:CGRectMake(120,26,80,20)];
+    [closeButton setTitle:@"Close" forState:UIControlStateNormal];
+    [closeButton addTarget:self action:@selector(closeExpandedCard) forControlEvents:UIControlEventTouchUpInside];
+    [greyOutMain addSubview:closeButton];
+    [closeButton setHidden:TRUE];
 }
 
 - (void)createCards {
@@ -98,6 +106,8 @@ Questions *prototypeDemoQuestions;
     Question *questionToUse = [originalSticker getQuestion];
     expandedSticker = [[QuestionSticker alloc] initWithQuestion:questionToUse withIndex:-1];
     CGRect frameInUIView = [originalSticker getFrameInUIView];
+    // TODO - the below is a hacky fix for something I don't understand - views jumping.
+    frameInUIView.origin.y = frameInUIView.origin.y-84;
     [expandedSticker setFrame:frameInUIView];
     [self.view addSubview:expandedSticker];
     [self.view bringSubviewToFront:expandedSticker];
@@ -108,6 +118,9 @@ Questions *prototypeDemoQuestions;
     [self.view bringSubviewToFront:expandedSticker];
     
     [originalSticker tapUpInside];
+    
+    [closeButton setHidden:FALSE];
+    [self.view bringSubviewToFront:closeButton];
 }
 
 -(void)tapUpOutside:(id)selector {
@@ -139,6 +152,8 @@ Questions *prototypeDemoQuestions;
 
     [originalSticker setHidden:FALSE];
     originalSticker = nil;
+    
+    [closeButton setHidden:TRUE];
 }
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {

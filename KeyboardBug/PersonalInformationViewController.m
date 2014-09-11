@@ -36,7 +36,7 @@
 -(void)setupInterface {
     defaults = [NSUserDefaults standardUserDefaults];
     
-    _pickerData = @[@"Straight", @"Gay", @"Lesbian", @"Transgender", @"Bi-sexual", @"Queer"];
+    _pickerData = @[@"Straight", @"Gay", @"Lesbian", /*@"Transgender", */@"Bi-sexual", @"Queer"];
     [sexualityPicker setDelegate:self];
     [sexualityPicker setDataSource:self];
     
