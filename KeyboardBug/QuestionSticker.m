@@ -85,7 +85,14 @@ CGRect originalViewFrame;
                                                              self.frame.size.width-30,
                                                              20)];
         [keywords setTextColor:[UIColor colorWithRed:0.29 green:0.29 blue:0.29 alpha:1]]; //#4a4a4a
-        [keywords setText:@"Hello, World"];
+        [keywords setFont:[UIFont fontWithName:@"Helvetica" size:14]];
+        NSString *keywordsText = @"";
+        for (int i = 0; i<[[inputQuestion splitExternalKeywords] count]; i++) {
+            keywordsText = [keywordsText stringByAppendingString:[[inputQuestion splitExternalKeywords] objectAtIndex:i]];
+            keywordsText = [keywordsText stringByAppendingString:@", "];
+        }
+        keywordsText = [keywordsText substringToIndex:([keywordsText length] -2)];
+        [keywords setText:keywordsText];
         [self addSubview:keywords];
         
         dividingLine2 = [[UIView alloc] initWithFrame:CGRectMake(20,

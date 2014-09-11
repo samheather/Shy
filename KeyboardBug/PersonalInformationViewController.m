@@ -27,7 +27,17 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor colorWithRed:0.796 green:0.796 blue:0.796 alpha:1]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    // Set white text style of titleBar, add Panda
+    self.navigationController.navigationBar.barTintColor =
+    [UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1];
+    // TODO can remove below line?
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.translucent = FALSE;
+    
+//    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0.149 blue:0.314 alpha:1]]; /*#002650*/
+    
     [self setupInterface];
     
 }
@@ -36,7 +46,7 @@
 -(void)setupInterface {
     defaults = [NSUserDefaults standardUserDefaults];
     
-    _pickerData = @[@"Straight", @"Gay", @"Lesbian", /*@"Transgender", */@"Bi-sexual", @"Queer"];
+    _pickerData = @[@"Lesbian", @"Gay", @"Straight", /*@"Transgender", */@"Bi-sexual", @"Queer"];
     [sexualityPicker setDelegate:self];
     [sexualityPicker setDataSource:self];
     
